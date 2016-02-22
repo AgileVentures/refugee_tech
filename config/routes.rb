@@ -10,10 +10,11 @@ Rails.application.routes.draw do
       resources :ping, only: [:index], constraints: { format: /(text|json)/ }
     end
 
-
-
   end
   resources :users
   resource :session, only: [:new, :create, :destroy]
+
+  get '/api' => redirect('/swagger/dist/index.html?url=/apidocs/api-docs.json')
+
   root to: 'application#welcome'
 end

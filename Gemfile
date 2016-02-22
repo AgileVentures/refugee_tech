@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'json'
 gem 'godmin'
 gem 'rack-cors', require: 'rack/cors'
-
+gem 'swagger-docs'
 
 group :development, :test do
   gem 'pry'
