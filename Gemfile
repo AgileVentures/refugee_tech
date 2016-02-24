@@ -14,6 +14,7 @@ gem 'json'
 gem 'godmin'
 gem 'apipie-rails'
 gem 'rack-cors', require: 'rack/cors'
+gem 'devise'
 
 group :development, :test do
   gem 'coveralls', require: false
