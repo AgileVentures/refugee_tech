@@ -17,6 +17,7 @@ gem 'apipie-rails'
 gem 'rack-cors', require: 'rack/cors'
 gem 'acts-as-taggable-on'
 gem 'devise'
+gem 'friendly_id', '~> 5.0.0'
 
 group :development, :test do
   gem 'coveralls', require: false
@@ -43,4 +44,3 @@ group :test do
   gem 'database_cleaner'
   gem 'poltergeist'
 end
-

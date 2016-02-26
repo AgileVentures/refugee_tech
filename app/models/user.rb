@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :user_name, use: [:slugged, :finders]
+
   acts_as_taggable_on :skills
 
   devise :database_authenticatable, :registerable,

@@ -96,3 +96,7 @@ end
 Then(/^I should not see the link "([^"]*)"$/) do |link|
   expect(page).not_to have_link link, exact: true
 end
+
+Then(/^I should see "([^"]*)" in the url$/) do |text|
+  expect(current_path).to have_content text
+end
