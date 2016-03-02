@@ -17,6 +17,8 @@ gem 'apipie-rails'
 gem 'rack-cors', require: 'rack/cors'
 gem 'acts-as-taggable-on'
 gem 'devise'
+gem 'omniauth'
+gem 'devise_token_auth'
 
 group :development, :test do
   gem 'coveralls', require: false

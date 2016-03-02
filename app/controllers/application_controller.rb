@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include DeviseTokenAuth::Concerns::SetUserByToken
   include Godmin::ApplicationController
   include Godmin::Authentication
 

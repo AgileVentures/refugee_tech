@@ -97,4 +97,8 @@ class Api::V1::UsersController < ApiController
     @user = User.find(params[:id])
     @unified_users = @user.unify
   end
+  
+  def new
+    @user = User.new()
+  end
 end
