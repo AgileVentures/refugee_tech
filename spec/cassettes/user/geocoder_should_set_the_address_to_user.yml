@@ -1,0 +1,491 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=195.41.5.202&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 17 Mar 2016 08:26:48 GMT
+      Expires:
+      - Fri, 18 Mar 2016 08:26:48 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '557'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAicmVzdWx0cyIgOiBbCiAgICAgIHsKICAgICAgICAgImFkZHJlc3Nf
+        Y29tcG9uZW50cyIgOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAg
+        ImxvbmdfbmFtZSIgOiAiNDEvNS4gU29rYWsiLAogICAgICAgICAgICAgICAi
+        c2hvcnRfbmFtZSIgOiAiNDEvNS4gU2suIiwKICAgICAgICAgICAgICAgInR5
+        cGVzIiA6IFsgInJvdXRlIiBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAg
+        IHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAixZ5pcmluZXZsZXIg
+        TWFoYWxsZXNpIiwKICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIsWe
+        aXJpbmV2bGVyIiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgImFkbWlu
+        aXN0cmF0aXZlX2FyZWFfbGV2ZWxfNCIsICJwb2xpdGljYWwiIF0KICAgICAg
+        ICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19u
+        YW1lIiA6ICJZxLFsZMSxcsSxbSIsCiAgICAgICAgICAgICAgICJzaG9ydF9u
+        YW1lIiA6ICJZxLFsZMSxcsSxbSIsCiAgICAgICAgICAgICAgICJ0eXBlcyIg
+        OiBbICJhZG1pbmlzdHJhdGl2ZV9hcmVhX2xldmVsXzIiLCAicG9saXRpY2Fs
+        IiBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAg
+        ICAgImxvbmdfbmFtZSIgOiAiQnVyc2EiLAogICAgICAgICAgICAgICAic2hv
+        cnRfbmFtZSIgOiAiQnVyc2EiLAogICAgICAgICAgICAgICAidHlwZXMiIDog
+        WyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9sZXZlbF8xIiwgInBvbGl0aWNhbCIg
+        XQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAg
+        ICJsb25nX25hbWUiIDogIlR1cmtleSIsCiAgICAgICAgICAgICAgICJzaG9y
+        dF9uYW1lIiA6ICJUUiIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJj
+        b3VudHJ5IiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAg
+        ICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIjE2MjkwIiwK
+        ICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIjE2MjkwIiwKICAgICAg
+        ICAgICAgICAgInR5cGVzIiA6IFsgInBvc3RhbF9jb2RlIiBdCiAgICAgICAg
+        ICAgIH0KICAgICAgICAgXSwKICAgICAgICAgImZvcm1hdHRlZF9hZGRyZXNz
+        IiA6ICLFnmlyaW5ldmxlciwgNDEvNS4gU2suLCAxNjI5MCBZxLFsZMSxcsSx
+        bS9CdXJzYSwgVHVya2V5IiwKICAgICAgICAgImdlb21ldHJ5IiA6IHsKICAg
+        ICAgICAgICAgImJvdW5kcyIgOiB7CiAgICAgICAgICAgICAgICJub3J0aGVh
+        c3QiIDogewogICAgICAgICAgICAgICAgICAibGF0IiA6IDQwLjIwMjE4MzUs
+        CiAgICAgICAgICAgICAgICAgICJsbmciIDogMjkuMTY5NTIwMgogICAgICAg
+        ICAgICAgICB9LAogICAgICAgICAgICAgICAic291dGh3ZXN0IiA6IHsKICAg
+        ICAgICAgICAgICAgICAgImxhdCIgOiA0MC4yMDIxMjk5LAogICAgICAgICAg
+        ICAgICAgICAibG5nIiA6IDI5LjE2ODQ2OQogICAgICAgICAgICAgICB9CiAg
+        ICAgICAgICAgIH0sCiAgICAgICAgICAgICJsb2NhdGlvbiIgOiB7CiAgICAg
+        ICAgICAgICAgICJsYXQiIDogNDAuMjAyMTU2NywKICAgICAgICAgICAgICAg
+        ImxuZyIgOiAyOS4xNjg5OTQ2CiAgICAgICAgICAgIH0sCiAgICAgICAgICAg
+        ICJsb2NhdGlvbl90eXBlIiA6ICJHRU9NRVRSSUNfQ0VOVEVSIiwKICAgICAg
+        ICAgICAgInZpZXdwb3J0IiA6IHsKICAgICAgICAgICAgICAgIm5vcnRoZWFz
+        dCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogNDAuMjAzNTA1Njgw
+        MjkxNDksCiAgICAgICAgICAgICAgICAgICJsbmciIDogMjkuMTcwMzQzNTgw
+        MjkxNDkKICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgInNvdXRo
+        d2VzdCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogNDAuMjAwODA3
+        NzE5NzA4NDksCiAgICAgICAgICAgICAgICAgICJsbmciIDogMjkuMTY3NjQ1
+        NjE5NzA4NQogICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAg
+        ICAgfSwKICAgICAgICAgInBhcnRpYWxfbWF0Y2giIDogdHJ1ZSwKICAgICAg
+        ICAgInBsYWNlX2lkIiA6ICJDaElKNVlDU25lWTR5aFFScTVNbXJjR045cGMi
+        LAogICAgICAgICAidHlwZXMiIDogWyAicm91dGUiIF0KICAgICAgfQogICBd
+        LAogICAic3RhdHVzIiA6ICJPSyIKfQo=
+    http_version: 
+  recorded_at: Thu, 17 Mar 2016 08:26:48 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=45.960491,13.6599124&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 17 Mar 2016 08:29:06 GMT
+      Expires:
+      - Fri, 18 Mar 2016 08:29:06 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '1047'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "3",
+                       "short_name" : "3",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Damber",
+                       "short_name" : "Damber",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Kromberk",
+                       "short_name" : "Kromberk",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "postal_town" ]
+                    },
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Slovenia",
+                       "short_name" : "SI",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "5000",
+                       "short_name" : "5000",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "Damber 3, 5000 Nova Gorica, Slovenia",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 45.960491,
+                       "lng" : 13.6599124
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 45.9618399802915,
+                          "lng" : 13.6612613802915
+                       },
+                       "southwest" : {
+                          "lat" : 45.9591420197085,
+                          "lng" : 13.6585634197085
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ53F3TA8Be0cRP6TZTO0iUaM",
+                 "types" : [ "street_address" ]
+              },
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Kromberk",
+                       "short_name" : "Kromberk",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Municipality of Nova Gorica",
+                       "short_name" : "Municipality of Nova Gorica",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Slovenia",
+                       "short_name" : "SI",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Kromberk, Slovenia",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 45.9921043,
+                          "lng" : 13.697803
+                       },
+                       "southwest" : {
+                          "lat" : 45.9510759,
+                          "lng" : 13.6507312
+                       }
+                    },
+                    "location" : {
+                       "lat" : 45.9579427,
+                       "lng" : 13.6625447
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 45.9921043,
+                          "lng" : 13.697803
+                       },
+                       "southwest" : {
+                          "lat" : 45.9510759,
+                          "lng" : 13.6507312
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJX-1B-6IBe0cRlnfpmMb2cNQ",
+                 "types" : [ "locality", "political" ]
+              },
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "postal_town" ]
+                    },
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Slovenia",
+                       "short_name" : "SI",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "5000",
+                       "short_name" : "5000",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "5000 Nova Gorica, Slovenia",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 45.9812841,
+                          "lng" : 13.7248801
+                       },
+                       "southwest" : {
+                          "lat" : 45.9231914,
+                          "lng" : 13.6328561
+                       }
+                    },
+                    "location" : {
+                       "lat" : 45.9532776,
+                       "lng" : 13.6809773
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 45.9812841,
+                          "lng" : 13.7248801
+                       },
+                       "southwest" : {
+                          "lat" : 45.9231914,
+                          "lng" : 13.6328561
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJrUxglW8Be0cR7r-iWZJN8WE",
+                 "types" : [ "postal_town" ]
+              },
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "5000",
+                       "short_name" : "5000",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "postal_town" ]
+                    },
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Slovenia",
+                       "short_name" : "SI",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "5000 Nova Gorica, Slovenia",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 45.9812841,
+                          "lng" : 13.7248801
+                       },
+                       "southwest" : {
+                          "lat" : 45.9231914,
+                          "lng" : 13.6328561
+                       }
+                    },
+                    "location" : {
+                       "lat" : 45.9532776,
+                       "lng" : 13.6809773
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 45.9812841,
+                          "lng" : 13.7248801
+                       },
+                       "southwest" : {
+                          "lat" : 45.9231914,
+                          "lng" : 13.6328561
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ-9pmlW8Be0cREB5njR_4ABw",
+                 "types" : [ "postal_code" ]
+              },
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Municipality of Nova Gorica",
+                       "short_name" : "Municipality of Nova Gorica",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Slovenia",
+                       "short_name" : "SI",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Municipality of Nova Gorica, Slovenia",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 46.1080598,
+                          "lng" : 13.8683622
+                       },
+                       "southwest" : {
+                          "lat" : 45.8338717,
+                          "lng" : 13.6085952
+                       }
+                    },
+                    "location" : {
+                       "lat" : 45.976276,
+                       "lng" : 13.7308881
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 46.1080598,
+                          "lng" : 13.8683622
+                       },
+                       "southwest" : {
+                          "lat" : 45.8338717,
+                          "lng" : 13.6085952
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJVZiAxG0Ce0cRbHHhAC1sUkg",
+                 "types" : [ "administrative_area_level_2", "political" ]
+              },
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Nova Gorica",
+                       "short_name" : "Nova Gorica",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Slovenia",
+                       "short_name" : "SI",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Nova Gorica, Slovenia",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 46.1712408,
+                          "lng" : 13.8683622
+                       },
+                       "southwest" : {
+                          "lat" : 45.8158667,
+                          "lng" : 13.47614
+                       }
+                    },
+                    "location" : {
+                       "lat" : 46.0401341,
+                       "lng" : 13.6845902
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 46.1712408,
+                          "lng" : 13.8683622
+                       },
+                       "southwest" : {
+                          "lat" : 45.8158667,
+                          "lng" : 13.47614
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ4WNKekMCe0cRebWC2ItEWuU",
+                 "types" : [ "administrative_area_level_1", "political" ]
+              },
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Slovenia",
+                       "short_name" : "SI",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Slovenia",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 46.876659,
+                          "lng" : 16.5966857
+                       },
+                       "southwest" : {
+                          "lat" : 45.4216739,
+                          "lng" : 13.3753355
+                       }
+                    },
+                    "location" : {
+                       "lat" : 46.151241,
+                       "lng" : 14.995463
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 46.876659,
+                          "lng" : 16.5966857
+                       },
+                       "southwest" : {
+                          "lat" : 45.4216739,
+                          "lng" : 13.3753355
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJYYOWXuckZUcRZdTiJR5FQOc",
+                 "types" : [ "country", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Thu, 17 Mar 2016 08:29:06 GMT
+recorded_with: VCR 3.0.1

@@ -17,4 +17,7 @@
 /tmp
 
 .idea/
+.DS_Store
+
+coverage/
 

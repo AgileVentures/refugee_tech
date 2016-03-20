@@ -1,0 +1,35 @@
+<%= render template: 'godmin/resource/show' %>
+
+<div id="unify"></div>
+
+<script>
+  $(document).ready(function () {
+    $('#unify_link').click(function () {
+      $.ajax({
+        beforeSend: function (request) {
+          request.setRequestHeader('X-User-Email', '<%= @resource.email %>');
+          request.setRequestHeader('X-User-Token', '<%= @resource.authentication_token %>');
+        },
+        dataType: "json",
+        url: '<%= api_v1_unify_path %>',
+        success: function (response) {
+          displayMatches(response);
+        }
+      });
+    });
+  });
+
+  function displayMatches(json) {
+    if (json.matches.length === 0) {
+      $('#unify').html('<h4>No matches for ' + json.user.user_name + ' were found</h4>');
+    } else {
+      $('#unify').html('<h4>Matches for ' + json.user.user_name + '</h4>');
+      $.each(json.matches, function (i, val) {
+        $('#unify').append('</p><a href="' + val.user.profile + '">' + val.user.user_name + '</a><br />');
+        $.each(val.user.skills, function (i, skill) {
+          $('#unify').append(skill + ' ');
+        });
+      });
+    }
+  }
+</script>

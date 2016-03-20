@@ -10,6 +10,58 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require godmin
  *= require_tree .
  *= require_self
  */
+
+.footer {
+    background: #f6f6f6;
+    padding: 20px 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.widget h2 {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.footer-bottom {
+    background: #d8d8d8;
+    padding: 15px 0;
+    border-top: 1px solid #d9d9d9;
+    font-size: 11px;
+    color: #777;
+}
+
+@media only screen and (max-width: 479px) {
+    .widget_content {
+        display: none;
+    }
+
+    .active .widget_content {
+        display: inline;
+    }
+
+    .widget h2 {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .widget h2:after {
+        content: "\203A";
+        color: white;
+        width: 20px;
+        height: 20px;
+        background: #999;
+        display: inline-block;
+        text-align: center;
+        float: right;
+    }
+
+    .active.widget h2:after {
+        content: "\2039";
+        background: #ccc;
+    }
+}

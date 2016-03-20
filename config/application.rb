@@ -17,6 +17,8 @@ Bundler.require(*Rails.groups)
 
 module ProjectUnify
   class Application < Rails::Application
+    ActsAsTaggableOn.remove_unused_tags = true
+    ActsAsTaggableOn.force_lowercase = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -31,5 +33,13 @@ module ProjectUnify
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_mailer.default_url_options = { host: 'example.com' }
+
+    config.middleware.insert_before 0, 'Rack::Cors' do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :put, :delete, :post, :options]
+      end
+    end
   end
 end

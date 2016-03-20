@@ -1,0 +1,33 @@
+<div id="table" class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <% if @resource_service.batch_action_map.present? %>
+        <th></th>
+      <% end %>
+      <% @resource_service.attrs_for_index.each do |attr| %>
+        <th class="column-<%= attr %>">
+          <%= column_header attr %>
+        </th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% @resources.each do |resource| %>
+      <tr data-resource-id="<%= resource.id %>" class="<%= "highlight" if flash[:updated_ids] && flash[:updated_ids].include?(resource.id) %>">
+        <% if @resource_service.batch_action_map.present? %>
+          <td align="center">
+            <%= check_box_tag "batch_action[items][#{resource.id}]", nil, nil,
+                              data: { behavior: "batch-actions-checkbox" } %>
+          </td>
+        <% end %>
+        <% @resource_service.attrs_for_index.each do |attr| %>
+          <td>
+            <%= column_value(resource, attr) %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
