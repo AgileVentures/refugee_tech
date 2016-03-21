@@ -159,4 +159,22 @@ RSpec.describe User, type: :model do
     it { is_expected.to allow_values('Male', 'Female', 'male', 'female').for(:gender)}
     it { is_expected.to_not allow_values('Ma', 'asdf', '', 12).for(:gender)}
   end
+  
+  describe 'Introduction field' do
+    let(:long_intro) { 'This introduction and short description of myself has obviously more than the allowed onehundredandfourty characters. Thats sad, because this is way too long for a short description of myself.' }
+    let(:short_intro) { 'My short intro' }
+
+    it 'raises error if :introduction is too long' do
+      expected_error = ActiveRecord::RecordInvalid
+      expected_message = 'Validation failed: Introduction Maximum length is 140 characters'
+      expect { FactoryGirl.create(:user, introduction: long_intro) }.to raise_error(expected_error, expected_message)
+    end
+    
+    it 'validates if :introduction is below 140 characters' do
+      expect(FactoryGirl.create(:user, introduction: short_intro)).to be_valid
+    end
+    
+     it { is_expected.to validate_length_of(:introduction) }
+  end
+
 end

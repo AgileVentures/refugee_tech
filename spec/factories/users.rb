@@ -5,6 +5,7 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
     gender 'male'
+    introduction 'hello world!'
     latitude 44.960562
     longitude 13.123123
     mentor false

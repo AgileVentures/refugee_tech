@@ -1,6 +1,7 @@
 
 <%= form_for(@resource) do |f| %>
   <%= f.text_field :user_name %>
+  <%= f.text_field :introduction %>
   <%= f.check_box :mentor %>
   <%= f.check_box :private %>
   <%= f.select :gender, [['Male','Male'],['Female','Female']] %>
