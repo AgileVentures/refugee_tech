@@ -28,6 +28,7 @@ gem 'amistad'
 
 group :development, :test do
   gem 'coveralls', require: false
+  gem 'simplecov', github: 'AgileVentures/simplecov'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
