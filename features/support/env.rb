@@ -1,5 +1,7 @@
 require 'coveralls'
-Coveralls.wear!
+require 'simplecov'
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+Coveralls.wear_merged!
 require 'rack/test'
 require 'cucumber/rails'
 require 'capybara/poltergeist'
