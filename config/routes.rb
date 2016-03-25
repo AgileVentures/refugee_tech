@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   apipie
 
   root to: 'application#welcome'
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
-
+      resources :languages, except: [:new, :edit]
       resources :users, only: [:index, :show], constraints: {format: /(json)/}
       get 'unify/:id', controller: :users, action: :unify, as: :unify, constraints: {format: /(json)/}
       post 'skills/:id', controller: :users, action: :skills, as: :skills, constraints: {format: /(json)/}
