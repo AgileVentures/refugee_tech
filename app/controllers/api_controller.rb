@@ -15,6 +15,19 @@ class ApiController < ActionController::Base
     request.session_options[:skip] = true
   end
 
+
+  def current_user
+    user_email = request.headers['X-User-Email'].presence 
+    user_token = request.headers['X-USER-TOKEN'].presence
+    user = user_email && User.find_by_email(user_email)
+    if user && Devise.secure_compare(user.authentication_token, user_token)
+      user = User.find_by_email(user_email)
+      return user
+    else
+      render :json => '{"success" : "false"}'
+    end
+  end
+
   protected
 
   def set_default_response_format

@@ -12,11 +12,15 @@ module Api::V1::RegistrationsDoc
 
   example %q(
             Request:
-             {'user_name':"Thomas Ochman",
-              "email":"thomas@craftacademy.se",
-              "password":"password",
-              "password_confirmation":"password"
-              }
+            {
+             'user':
+               {
+                 'user_name':"Thomas Ochman",
+                  "email":"thomas@craftacademy.se",
+                  "password":"password",
+                  "password_confirmation":"password"
+                }
+            }
 
             Response:
             {"message":"success",
