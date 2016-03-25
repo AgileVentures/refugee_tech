@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <title><%= 'Project Unify' %></title>
+  <%= stylesheet_link_tag File.join(engine_wrapper.namespaced_path, "application").gsub(/^\//, ""), media: "all" %>
+  <%= javascript_include_tag File.join(engine_wrapper.namespaced_path, "application").gsub(/^\//, "") %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= yield :head %>
+  <%= image_tag 'logo.jpg', style: 'height: 128px; width:auto;' %>
+</head>
+<body>
+<%= yield :body %>
+
+<%= render 'layouts/godmin/footer' %>
+<script>
+  $(document).ready(function () {
+    fixedFooter(); //at page load
+    $(".widget h2").click(
+        function () {
+          $(this).parent().toggleClass('active');
+        }
+    );
+
+  });
+
+  $(window).resize(function () {
+    fixedFooter(); //at page resize
+  });
+</script>
+</body>
+</html>

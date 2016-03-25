@@ -7,7 +7,7 @@ development:
   <<: *default
   database: unify_development
 
-test:
+test: &test
   <<: *default
   database: unify_test
 

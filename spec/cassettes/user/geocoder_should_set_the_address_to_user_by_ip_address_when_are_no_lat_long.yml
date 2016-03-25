@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=195.41.5.202&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 17 Mar 2016 08:35:08 GMT
+      Expires:
+      - Fri, 18 Mar 2016 08:35:08 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '557'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAicmVzdWx0cyIgOiBbCiAgICAgIHsKICAgICAgICAgImFkZHJlc3Nf
+        Y29tcG9uZW50cyIgOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAg
+        ImxvbmdfbmFtZSIgOiAiNDEvNS4gU29rYWsiLAogICAgICAgICAgICAgICAi
+        c2hvcnRfbmFtZSIgOiAiNDEvNS4gU2suIiwKICAgICAgICAgICAgICAgInR5
+        cGVzIiA6IFsgInJvdXRlIiBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAg
+        IHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAixZ5pcmluZXZsZXIg
+        TWFoYWxsZXNpIiwKICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIsWe
+        aXJpbmV2bGVyIiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgImFkbWlu
+        aXN0cmF0aXZlX2FyZWFfbGV2ZWxfNCIsICJwb2xpdGljYWwiIF0KICAgICAg
+        ICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19u
+        YW1lIiA6ICJZxLFsZMSxcsSxbSIsCiAgICAgICAgICAgICAgICJzaG9ydF9u
+        YW1lIiA6ICJZxLFsZMSxcsSxbSIsCiAgICAgICAgICAgICAgICJ0eXBlcyIg
+        OiBbICJhZG1pbmlzdHJhdGl2ZV9hcmVhX2xldmVsXzIiLCAicG9saXRpY2Fs
+        IiBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAg
+        ICAgImxvbmdfbmFtZSIgOiAiQnVyc2EiLAogICAgICAgICAgICAgICAic2hv
+        cnRfbmFtZSIgOiAiQnVyc2EiLAogICAgICAgICAgICAgICAidHlwZXMiIDog
+        WyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9sZXZlbF8xIiwgInBvbGl0aWNhbCIg
+        XQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAg
+        ICJsb25nX25hbWUiIDogIlR1cmtleSIsCiAgICAgICAgICAgICAgICJzaG9y
+        dF9uYW1lIiA6ICJUUiIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJj
+        b3VudHJ5IiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAg
+        ICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIjE2MjkwIiwK
+        ICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIjE2MjkwIiwKICAgICAg
+        ICAgICAgICAgInR5cGVzIiA6IFsgInBvc3RhbF9jb2RlIiBdCiAgICAgICAg
+        ICAgIH0KICAgICAgICAgXSwKICAgICAgICAgImZvcm1hdHRlZF9hZGRyZXNz
+        IiA6ICLFnmlyaW5ldmxlciwgNDEvNS4gU2suLCAxNjI5MCBZxLFsZMSxcsSx
+        bS9CdXJzYSwgVHVya2V5IiwKICAgICAgICAgImdlb21ldHJ5IiA6IHsKICAg
+        ICAgICAgICAgImJvdW5kcyIgOiB7CiAgICAgICAgICAgICAgICJub3J0aGVh
+        c3QiIDogewogICAgICAgICAgICAgICAgICAibGF0IiA6IDQwLjIwMjE4MzUs
+        CiAgICAgICAgICAgICAgICAgICJsbmciIDogMjkuMTY5NTIwMgogICAgICAg
+        ICAgICAgICB9LAogICAgICAgICAgICAgICAic291dGh3ZXN0IiA6IHsKICAg
+        ICAgICAgICAgICAgICAgImxhdCIgOiA0MC4yMDIxMjk5LAogICAgICAgICAg
+        ICAgICAgICAibG5nIiA6IDI5LjE2ODQ2OQogICAgICAgICAgICAgICB9CiAg
+        ICAgICAgICAgIH0sCiAgICAgICAgICAgICJsb2NhdGlvbiIgOiB7CiAgICAg
+        ICAgICAgICAgICJsYXQiIDogNDAuMjAyMTU2NywKICAgICAgICAgICAgICAg
+        ImxuZyIgOiAyOS4xNjg5OTQ2CiAgICAgICAgICAgIH0sCiAgICAgICAgICAg
+        ICJsb2NhdGlvbl90eXBlIiA6ICJHRU9NRVRSSUNfQ0VOVEVSIiwKICAgICAg
+        ICAgICAgInZpZXdwb3J0IiA6IHsKICAgICAgICAgICAgICAgIm5vcnRoZWFz
+        dCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogNDAuMjAzNTA1Njgw
+        MjkxNDksCiAgICAgICAgICAgICAgICAgICJsbmciIDogMjkuMTcwMzQzNTgw
+        MjkxNDkKICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgInNvdXRo
+        d2VzdCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogNDAuMjAwODA3
+        NzE5NzA4NDksCiAgICAgICAgICAgICAgICAgICJsbmciIDogMjkuMTY3NjQ1
+        NjE5NzA4NQogICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAg
+        ICAgfSwKICAgICAgICAgInBhcnRpYWxfbWF0Y2giIDogdHJ1ZSwKICAgICAg
+        ICAgInBsYWNlX2lkIiA6ICJDaElKNVlDU25lWTR5aFFScTVNbXJjR045cGMi
+        LAogICAgICAgICAidHlwZXMiIDogWyAicm91dGUiIF0KICAgICAgfQogICBd
+        LAogICAic3RhdHVzIiA6ICJPSyIKfQo=
+    http_version: 
+  recorded_at: Thu, 17 Mar 2016 08:35:08 GMT
+recorded_with: VCR 3.0.1
