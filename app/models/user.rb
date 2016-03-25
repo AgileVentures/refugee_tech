@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   acts_as_taggable_on :skills
   acts_as_messageable
 
+  has_many :user_languages
+  has_many :languages, through: :user_languages
+
   after_validation :reverse_geocode, if: lambda{ |obj| obj.latitude.present? || obj.longitude.present? }
   after_validation :geocode, if: lambda{ |obj| obj.ip_address.present? }
   
