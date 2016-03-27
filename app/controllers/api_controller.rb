@@ -15,6 +15,12 @@ class ApiController < ActionController::Base
     request.session_options[:skip] = true
   end
 
+
+  def current_user
+    user_token = request.headers['X-USER-TOKEN'].presence
+    User.find_by_authentication_token(user_token)
+  end
+
   protected
 
   def set_default_response_format
