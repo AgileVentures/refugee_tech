@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe UserLanguage, type: :model do
 
-  it { is_expected.to validate_presence_of(:written)  }
-  it { is_expected.to validate_presence_of(:spoken)  }
   it { is_expected.to validate_presence_of(:level)  }
 
 end

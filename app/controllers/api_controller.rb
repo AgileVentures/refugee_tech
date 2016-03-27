@@ -17,15 +17,8 @@ class ApiController < ActionController::Base
 
 
   def current_user
-    user_email = request.headers['X-User-Email'].presence 
     user_token = request.headers['X-USER-TOKEN'].presence
-    user = user_email && User.find_by_email(user_email)
-    if user && Devise.secure_compare(user.authentication_token, user_token)
-      user = User.find_by_email(user_email)
-      return user
-    else
-      render :json => '{"success" : "false"}'
-    end
+    User.find_by_authentication_token(user_token)
   end
 
   protected

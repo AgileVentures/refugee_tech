@@ -70,10 +70,10 @@ module Api::V1::LanguagesDoc
   {
     "language" :
       {
-        language_id: 15,
-        spoken: true,
-        written: true,
-        level: "intermediate"
+        "language_id": 15,
+        "spoken": true,
+        "written:" true,
+        "level": "intermediate"
       }
   }
 

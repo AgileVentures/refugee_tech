@@ -52,7 +52,7 @@ RSpec.describe "Languages management", :type => :request do
       context 'invalid input' do
         it 'returns error msg' do
           post '/api/v1/languages', {language: {language_id: english.id } }, headers
-          expect( response_json['errors'].keys ).to match_array(['written','spoken','level'])
+          expect( response_json['errors'].keys ).to include('level')
           expect(response.status).to eq 401
         end
       end
@@ -88,7 +88,7 @@ RSpec.describe "Languages management", :type => :request do
     context 'authenticated user' do
       context 'valid input' do
         it 'returns success message' do
-          put "/api/v1/languages/#{first_lang.id}", {language: {level: 'fluent'}}, headers
+          put "/api/v1/languages/#{first_lang.id}", {language: {level: 'fluent', written: false}}, headers
           expect(response_json['message']).to eq('Successfully updated language')
           expect(response.status).to eq 200
         end
@@ -96,7 +96,7 @@ RSpec.describe "Languages management", :type => :request do
       context 'invalid input' do
         it 'returns error message' do
           put "/api/v1/languages/#{first_lang.id}", {language: {level: nil, spoken: nil, written: nil}}, headers
-          expect( response_json['errors'].keys ).to match_array(['written','spoken','level'])
+          expect( response_json['errors'].keys ).to include('level')
           expect(response.status).to eq 401
         end
       end
