@@ -1,7 +1,7 @@
-require 'simplecov'
 require 'coveralls'
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-Coveralls.wear_merged!
+require 'simplecov'
+SimpleCov.command_name "features"
+Coveralls.wear_merged!('rails')
 require 'rack/test'
 require 'cucumber/rails'
 require 'capybara/poltergeist'

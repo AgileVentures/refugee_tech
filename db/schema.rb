@@ -121,7 +121,6 @@ ActiveRecord::Schema.define(version: 20160321140859) do
     t.inet     "last_sign_in_ip"
     t.boolean  "mentor",                 default: false
     t.boolean  "private",                default: false
-    t.string   "slug"
     t.string   "authentication_token"
     t.string   "provider"
     t.string   "uid"
@@ -133,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160321140859) do
     t.string   "gender"
     t.inet     "ip_address"
     t.string   "introduction"
+    t.string   "slug"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", using: :btree

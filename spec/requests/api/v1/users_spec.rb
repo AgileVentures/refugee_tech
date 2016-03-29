@@ -1,4 +1,7 @@
 require 'rails_helper'
+#its important for SimpleCov in order to merge the test results correctly
+#that in one file of each test folder we specify a command_name
+SimpleCov.command_name 'test:functionals'
 
 describe Api::V1::UsersController do
   let(:user) { FactoryGirl.create(:user) }

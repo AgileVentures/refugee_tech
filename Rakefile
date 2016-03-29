@@ -5,8 +5,7 @@ require File.expand_path('../config/application', __FILE__)
 
 require 'coveralls/rake/task'
 Coveralls::RakeTask.new
-#task :test_with_coveralls => [:spec, :cucumber, 'coveralls:push']
-task :test_with_coveralls => [:spec, 'coveralls:push']
+task :test_with_coveralls => [:spec,:cucumber, 'coveralls:push']
 Rails.application.load_tasks
 
 task default: 'brakeman:run'
