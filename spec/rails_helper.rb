@@ -1,12 +1,12 @@
 ENV['RAILS_ENV'] ||= 'test'
-require 'coveralls'
 require 'simplecov'
+require 'coveralls'
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 Coveralls.wear_merged!
+require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 abort('The Rails environment is running in production mode!') if Rails.env.production?
-require 'spec_helper'
 require 'rspec/rails'
 require 'webmock/rspec'
 require 'vcr'

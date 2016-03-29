@@ -1,5 +1,5 @@
-require 'coveralls'
 require 'simplecov'
+require 'coveralls'
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 Coveralls.wear_merged!
 require 'rack/test'
