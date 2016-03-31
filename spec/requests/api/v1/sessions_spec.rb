@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Api::V1::SessionsController do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, latitude: 44, longitude: 13) }
+  let(:user_2) { FactoryGirl.create(:user, latitude: nil, longitude: nil) }
   let(:headers) { {HTTP_ACCEPT: 'application/json'} }
 
   describe 'POST /api/v1/users/sign_in' do
@@ -27,9 +28,29 @@ describe Api::V1::SessionsController do
                                         'skills' => user.skills.reverse,
                                         'token' => user.authentication_token
                                     })
+                                    
         expect(user.authentication_token).to_not be nil
       end
 
+      it 'should set a user address if is not already set' do
+        post '/api/v1/users/sign_in', {user: {email: "#{user_2.email}", password: "#{user_2.password}"}}, {HTTP_ACCEPT: 'application/json',
+                                                                                                          REMOTE_ADDR: '24.193.83.1'}
+        
+        expect(response_json).to eq('message' => 'success',
+                            'user' => {
+                                'id' => user_2.id,
+                                'user_name' => user_2.user_name,
+                                'email' => user_2.email,
+                                'mentor' => false,
+                                'lat' => nil,
+                                'lng' => nil,
+                                'city' => 'Rego Park',
+                                'country' => 'United States',
+                                'skills' => user_2.skills.reverse,
+                                'token' => user_2.authentication_token
+                            })
+      end
+      
       it 'invalid password returns error message' do
         post '/api/v1/users/sign_in', {user: {email: "#{user.email}", password: 'wrong_password'}}, headers
         expect(response_json).to eq('error' => 'Invalid email or password.')

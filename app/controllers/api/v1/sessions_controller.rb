@@ -8,6 +8,11 @@ class Api::V1::SessionsController < Devise::SessionsController
 
   def create
     self.resource = warden.authenticate!(auth_options)
+    unless self.resource.has_address?
+      self.resource.ip_address = request.remote_ip
+      self.resource.save!
+    end
+    
     sign_in(resource_name, resource)
     yield resource if block_given?
     @resource = resource

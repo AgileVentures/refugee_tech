@@ -69,6 +69,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_address?
+    !self.city.nil? || !self.country.nil? || !self.state.nil?
+  end
   def mailboxer_name
     self.user_name
   end

@@ -157,7 +157,7 @@ RSpec.describe User, type: :model do
 
   describe 'Geocoder' do
     let(:user_1) { FactoryGirl.create(:user, user_name: 'Zmago', latitude: 45.960491, longitude: 13.6599124 ) }
-    let(:user_2) { FactoryGirl.create(:user, user_name: 'Thomas', ip_address: "195.41.5.202", latitude: nil, longitude:nil ) }
+    let(:user_2) { FactoryGirl.create(:user, user_name: 'Thomas', latitude: nil, longitude:nil ) }
     
     it 'should set the address to user' do
       expect(user_1.city).to eq 'Kromberk'
@@ -166,9 +166,9 @@ RSpec.describe User, type: :model do
     end
     
     it 'should set the address to user by ip address when are no lat, long' do
-      expect(user_2.city).to eq 'Yıldırım'
-      expect(user_2.state).to eq 'Bursa'
-      expect(user_2.country).to eq 'Turkey'      
+      user_2.ip_address = "195.41.5.202"
+      user_2.save
+      expect(user_2.country).to eq 'Denmark'      
     end
   end
   

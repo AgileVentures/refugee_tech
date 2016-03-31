@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
+    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.0,13.0&sensor=false
     body:
       encoding: US-ASCII
       string: ''
@@ -21,9 +21,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Fri, 11 Mar 2016 12:57:49 GMT
+      - Fri, 25 Mar 2016 21:07:12 GMT
       Expires:
-      - Sat, 12 Mar 2016 12:57:49 GMT
+      - Sat, 26 Mar 2016 21:07:12 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - mafe
       Content-Length:
-      - '65'
+      - '610'
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -40,9 +40,103 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-           "results" : [],
-           "status" : "ZERO_RESULTS"
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "7",
+                       "short_name" : "7",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Via G. Gabrielli",
+                       "short_name" : "Via G. Gabrielli",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Fano",
+                       "short_name" : "Fano",
+                       "types" : [ "administrative_area_level_3", "political" ]
+                    },
+                    {
+                       "long_name" : "Provincia di Pesaro e Urbino",
+                       "short_name" : "PU",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Marche",
+                       "short_name" : "Marche",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Italy",
+                       "short_name" : "IT",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Via G. Gabrielli, 7, Fano PU, Italy",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 43.992041,
+                       "lng" : 12.978365
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 43.9933899802915,
+                          "lng" : 12.9797139802915
+                       },
+                       "southwest" : {
+                          "lat" : 43.9906920197085,
+                          "lng" : 12.9770160197085
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJrxpgqdAiLRMRp0Ly3j2ukd4",
+                 "types" : [ "street_address" ]
+              },
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Italy",
+                       "short_name" : "IT",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Italy",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 47.092,
+                          "lng" : 18.5205015
+                       },
+                       "southwest" : {
+                          "lat" : 35.4930165,
+                          "lng" : 6.6267201
+                       }
+                    },
+                    "location" : {
+                       "lat" : 41.87194,
+                       "lng" : 12.56738
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 47.092,
+                          "lng" : 18.5205015
+                       },
+                       "southwest" : {
+                          "lat" : 35.4931088,
+                          "lng" : 6.6267201
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJA9KNRIL-1BIRb15jJFz1LOI",
+                 "types" : [ "country", "political" ]
+              }
+           ],
+           "status" : "OK"
         }
     http_version: 
-  recorded_at: Fri, 11 Mar 2016 12:57:49 GMT
+  recorded_at: Fri, 25 Mar 2016 21:07:12 GMT
 recorded_with: VCR 3.0.1

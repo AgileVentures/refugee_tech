@@ -10,7 +10,6 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
   def create
     self.resource = build_resource(sign_up_params.merge params['user'])
-    resource.ip_address = request.remote_ip if resource.latitude.blank? || resource.longitude.blank?
     resource.save
     yield resource if block_given?
     if resource.persisted?

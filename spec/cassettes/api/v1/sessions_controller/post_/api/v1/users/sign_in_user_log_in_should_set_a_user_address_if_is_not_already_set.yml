@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://freegeoip.net/json/195.41.5.202
+    uri: http://freegeoip.net/json/24.193.83.1
     body:
       encoding: US-ASCII
       string: ''
@@ -25,14 +25,15 @@ http_interactions:
       X-Database-Date:
       - Fri, 25 Mar 2016 01:50:28 GMT
       Date:
-      - Thu, 31 Mar 2016 07:23:53 GMT
+      - Thu, 31 Mar 2016 08:54:46 GMT
       Content-Length:
-      - '211'
+      - '242'
     body:
       encoding: UTF-8
-      string: '{"ip":"195.41.5.202","country_code":"DK","country_name":"Denmark","region_code":"","region_name":"","city":"","zip_code":"","time_zone":"Europe/Copenhagen","latitude":55.6761,"longitude":12.5683,"metro_code":0}
+      string: '{"ip":"24.193.83.1","country_code":"US","country_name":"United States","region_code":"NY","region_name":"New
+        York","city":"Rego Park","zip_code":"11374","time_zone":"America/New_York","latitude":40.7235,"longitude":-73.8612,"metro_code":501}
 
 '
     http_version: 
-  recorded_at: Thu, 31 Mar 2016 07:23:53 GMT
+  recorded_at: Thu, 31 Mar 2016 08:54:46 GMT
 recorded_with: VCR 3.0.1

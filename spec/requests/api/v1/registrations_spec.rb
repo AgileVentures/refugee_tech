@@ -17,8 +17,6 @@ describe Api::V1::RegistrationsController do
 
         expect(response_json['message']).to eq('success')
         expect(response_json['user']['user_name']).to eq('Thomas')
-        expect(response_json['user']['city']).to_not be nil
-        expect(response_json['user']['country']).to_not be nil
         expect(response_json['user']['token']).to_not be nil
         expect(response.status).to eq 200
       end
