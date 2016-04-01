@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   include Amistad::FriendModel
-  acts_as_token_authenticatable
+  #acts_as_token_authenticatable
   extend FriendlyId
   friendly_id :user_name, use: [:slugged, :finders]
 
