@@ -13,9 +13,9 @@ module Api::V1::RegistrationsDoc
   example %q(
             Request:
             {
-             'user':
+             "user":
                {
-                 'user_name':"Thomas Ochman",
+                 "user_name":"Thomas Ochman",
                   "email":"thomas@craftacademy.se",
                   "password":"password",
                   "password_confirmation":"password"
@@ -23,11 +23,14 @@ module Api::V1::RegistrationsDoc
             }
 
             Response:
-            {"message":"success",
-             "user":
-                {"id":42,
-                 "user_name":"Thomas Ochman",
-                 "token":"8TyjHFtPW3Y5CUN4dHG3"}
+            {
+              "message":"success",
+              "user":
+                {
+                  "id":42,
+                  "user_name":"Thomas Ochman",
+                  "token":"8TyjHFtPW3Y5CUN4dHG3"
+                }
              }
           )
 

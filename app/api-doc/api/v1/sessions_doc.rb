@@ -6,10 +6,11 @@ module Api::V1::SessionsDoc
   example %q(
             Request:
 
-              {"user":
-                 {"email":"thomas@craftacademy.se",
-                  "password":"password"
-                 }
+              {
+                "user":
+                   {"email":"thomas@craftacademy.se",
+                    "password":"password"
+                   }
               }
             Response:
               {

@@ -1,6 +1,16 @@
 module Api::V1::LanguagesDoc
   extend Apipie::DSL::Concern
 
+
+  def_param_group :language do
+    param :language, Hash, action_aware: true, required: true do
+      param :language_id, Integer, required:  true
+      param :level, String, required: true
+      param :written, [true,false], desc: "Default is false"
+      param :spoken, [true,false], desc:  "Default is false"
+    end
+  end
+
   api :GET, '/v1/languages/', 'List of languages'
   formats %w(json)
   header :HTTP_ACCEPT, 'application/json', required: true
@@ -65,6 +75,7 @@ module Api::V1::LanguagesDoc
   header :HTTP_ACCEPT, 'application/json', required: true
   header 'X-User-Email', 'email', required: true
   header 'X-User-Token', 'authentication token', required: true
+  param_group :language
   example %q(
   Request:
   {
@@ -104,6 +115,7 @@ module Api::V1::LanguagesDoc
   header :HTTP_ACCEPT, 'application/json', required: true
   header 'X-User-Email', 'email', required: true
   header 'X-User-Token', 'authentication token', required: true
+  param_group :language
   example %q(
   Request:
   {

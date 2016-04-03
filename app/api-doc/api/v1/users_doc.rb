@@ -14,12 +14,16 @@ module Api::V1::UsersDoc
       {
          "id":1,
          "user_name":"Thomas Ochman",
+         "city": "Nuuk",
+         "country": "Greenland",
          "created_at":"2016-02-22T17:46:07.045Z",
          "profile":"http://localhost:3000/api/v1/users/1"
       },
       {
          "id":2,
          "user_name":"Anders Andersson",
+         "city": "Paris",
+         "country": "France",
          "created_at":"2016-02-22T17:46:24.915Z",
          "profile":"http://localhost:3000/api/v1/users/2"
       }
@@ -43,7 +47,33 @@ module Api::V1::UsersDoc
    "user":{
       "id":1,
       "user_name":"Thomas Ochman",
-      "created_at":"2016-02-22T17:46:07.045Z"
+      "introduction": "Introduction msg",
+      "gender": "male",
+      "lat": 82.1241969927258,
+      "lng": -17.3820199231927,
+      "city": "Nuuk",
+      "country": "Greenland",
+      "email": "email@email.com",
+      "skills": [
+        "rspec",
+        "rails",
+        "ruby"
+      ],
+      "created_at": "2016-03-23T16:39:32.371Z",
+      "friends": [
+        {
+          "id": 12,
+          "name": "Max",
+          "url": "/users/max"
+        }
+      ],
+      "pending_friendships": [
+        {
+          "id": 11,
+          "name": "MB",
+          "url": "/users/mb"
+        }
+      ]
    }
 })
 
@@ -115,6 +145,64 @@ module Api::V1::UsersDoc
   formats %w(json)
   header 'X-User-Email', 'email', required: true
   header 'X-User-Token', 'authentication token', required: true
+  param :skills, String, :desc => 'Sending an empty string or omitting this params will delete the user\'s skill list'
+  example %q(
+  Request:
+  {
+    "skills" : "ruby, rails, rspec"
+  }
+
+  Response:
+  {
+    "message": "success"
+  }
+  
+  )
   def skills
+  end
+
+  api :GET, '/v1/user/:id/friendship/:friend_id', 'Send friendship invitation'
+  description 'Allow to send invitation from resource(:id) to resource(:friend_id)'
+  formats %w(json)
+  header 'X-User-Email', 'email', required: true
+  header 'X-User-Token', 'authentication token', required: true
+  example %q(
+    Response:
+  {
+    "message": "successfully invidted user Miss Ted Stroman"
+  }
+  
+  )
+  def friendship
+  end
+
+  api :GET, '/v1/user/:id/friendship/:friend_id/confirm', 'Confirm friendship invitation'
+  description 'Allow to confirm invitation from resource(:friend_id) by resource(:id)'
+  formats %w(json)
+  header 'X-User-Email', 'email', required: true
+  header 'X-User-Token', 'authentication token', required: true
+  example %q(
+    Response:
+  {
+    "message": "successfully confirmed friendship with MB"
+  }
+  
+  )
+  def confirm_frienship
+  end
+
+  api :GET, '/v1/user/:id/friendship/:friend_id/block', 'block friendship invitation'
+  description 'Allow to block invitation or remove friend  resource(:friend_id) by resource(:id)'
+  formats %w(json)
+  header 'X-User-Email', 'email', required: true
+  header 'X-User-Token', 'authentication token', required: true
+  example %q(
+    Response:
+  {
+    "message": "successfully blocked friendship with MB"
+  }
+  
+  )
+  def block_frienship
   end
 end

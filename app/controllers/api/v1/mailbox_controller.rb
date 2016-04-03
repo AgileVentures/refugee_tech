@@ -1,4 +1,6 @@
 class Api::V1::MailboxController < ApiController
+
+  include Api::V1::MailboxDoc
   before_action :set_user
 
   def inbox
