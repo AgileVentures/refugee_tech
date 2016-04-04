@@ -16,7 +16,8 @@ gem 'apipie-rails'
 gem 'rack-cors', require: 'rack/cors'
 gem 'acts-as-taggable-on'
 gem 'devise', github: "plataformatec/devise"
-#gem 'simple_token_authentication', '~> 1.0'
+#gem 'simple_token_authentication', '~> 1.0
+gem 'simple_token_authentication', git: 'https://github.com/gonzalo-bulnes/simple_token_authentication.git', branch: 'spike-add-rails-5-support-without-backward-compatibility-breakage', ref: '090ad57392b06fa1defbb70e8faa04fda99d5db1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'geocoder'
