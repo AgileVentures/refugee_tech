@@ -21,15 +21,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-<<<<<<< 0129dcee4820229a4f10982d55fdf2b68ac1c864
-      - Mon, 04 Apr 2016 06:43:02 GMT
+      - Mon, 04 Apr 2016 08:40:22 GMT
       Expires:
-      - Tue, 05 Apr 2016 06:43:02 GMT
-=======
-      - Mon, 04 Apr 2016 06:36:16 GMT
-      Expires:
-      - Tue, 05 Apr 2016 06:36:16 GMT
->>>>>>> minor changes
+      - Tue, 05 Apr 2016 08:40:22 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
@@ -50,5 +44,5 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Mon, 04 Apr 2016 06:43:02 GMT
+  recorded_at: Mon, 04 Apr 2016 08:40:22 GMT
 recorded_with: VCR 3.0.1

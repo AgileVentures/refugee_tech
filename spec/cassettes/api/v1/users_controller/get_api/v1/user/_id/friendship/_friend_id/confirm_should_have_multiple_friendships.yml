@@ -21,17 +21,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 21 Mar 2016 12:41:19 GMT
+      - Mon, 04 Apr 2016 08:40:29 GMT
+      Pragma:
+      - no-cache
       Expires:
-      - Tue, 22 Mar 2016 12:41:19 GMT
+      - Fri, 01 Jan 1990 00:00:00 GMT
       Cache-Control:
-      - public, max-age=86400
+      - no-cache, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
       Server:
       - mafe
       Content-Length:
-      - '65'
+      - '133'
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -40,11 +42,12 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
+           "error_message" : "You have exceeded your rate-limit for this API.",
            "results" : [],
-           "status" : "ZERO_RESULTS"
+           "status" : "OVER_QUERY_LIMIT"
         }
     http_version: 
-  recorded_at: Mon, 21 Mar 2016 12:41:19 GMT
+  recorded_at: Mon, 04 Apr 2016 08:40:29 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -66,17 +69,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 21 Mar 2016 12:41:19 GMT
+      - Mon, 04 Apr 2016 08:40:29 GMT
+      Pragma:
+      - no-cache
       Expires:
-      - Tue, 22 Mar 2016 12:41:19 GMT
+      - Fri, 01 Jan 1990 00:00:00 GMT
       Cache-Control:
-      - public, max-age=86400
+      - no-cache, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
       Server:
       - mafe
       Content-Length:
-      - '65'
+      - '133'
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -85,11 +90,12 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
+           "error_message" : "You have exceeded your rate-limit for this API.",
            "results" : [],
-           "status" : "ZERO_RESULTS"
+           "status" : "OVER_QUERY_LIMIT"
         }
     http_version: 
-  recorded_at: Mon, 21 Mar 2016 12:41:19 GMT
+  recorded_at: Mon, 04 Apr 2016 08:40:29 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -111,17 +117,19 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 21 Mar 2016 12:41:19 GMT
+      - Mon, 04 Apr 2016 08:40:30 GMT
+      Pragma:
+      - no-cache
       Expires:
-      - Tue, 22 Mar 2016 12:41:19 GMT
+      - Fri, 01 Jan 1990 00:00:00 GMT
       Cache-Control:
-      - public, max-age=86400
+      - no-cache, must-revalidate
       Access-Control-Allow-Origin:
       - "*"
       Server:
       - mafe
       Content-Length:
-      - '65'
+      - '133'
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -130,11 +138,12 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
+           "error_message" : "You have exceeded your rate-limit for this API.",
            "results" : [],
-           "status" : "ZERO_RESULTS"
+           "status" : "OVER_QUERY_LIMIT"
         }
     http_version: 
-  recorded_at: Mon, 21 Mar 2016 12:41:19 GMT
+  recorded_at: Mon, 04 Apr 2016 08:40:30 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -156,9 +165,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 21 Mar 2016 12:41:19 GMT
+      - Mon, 04 Apr 2016 08:40:30 GMT
       Expires:
-      - Tue, 22 Mar 2016 12:41:19 GMT
+      - Tue, 05 Apr 2016 08:40:30 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
@@ -179,7 +188,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Mon, 21 Mar 2016 12:41:19 GMT
+  recorded_at: Mon, 04 Apr 2016 08:40:30 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -201,9 +210,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 21 Mar 2016 12:41:19 GMT
+      - Mon, 04 Apr 2016 08:40:30 GMT
       Expires:
-      - Tue, 22 Mar 2016 12:41:19 GMT
+      - Tue, 05 Apr 2016 08:40:30 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
@@ -224,7 +233,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Mon, 21 Mar 2016 12:41:19 GMT
+  recorded_at: Mon, 04 Apr 2016 08:40:30 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -246,9 +255,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 21 Mar 2016 12:41:19 GMT
+      - Mon, 04 Apr 2016 08:40:30 GMT
       Expires:
-      - Tue, 22 Mar 2016 12:41:19 GMT
+      - Tue, 05 Apr 2016 08:40:30 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
@@ -269,5 +278,5 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Mon, 21 Mar 2016 12:41:19 GMT
+  recorded_at: Mon, 04 Apr 2016 08:40:30 GMT
 recorded_with: VCR 3.0.1
