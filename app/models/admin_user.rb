@@ -1,4 +1,4 @@
-class AdminUser < ActiveRecord::Base
+class AdminUser < ApplicationRecord
   include Godmin::Authentication::User
   
   validates :password, presence: true, length: { minimum: 6 }

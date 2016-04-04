@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Amistad::FriendModel
   acts_as_token_authenticatable
   extend FriendlyId
