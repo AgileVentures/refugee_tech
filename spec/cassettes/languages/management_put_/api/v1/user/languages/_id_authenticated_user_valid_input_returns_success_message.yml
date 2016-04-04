@@ -21,9 +21,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
+<<<<<<< 0129dcee4820229a4f10982d55fdf2b68ac1c864
       - Mon, 04 Apr 2016 06:43:02 GMT
       Expires:
       - Tue, 05 Apr 2016 06:43:02 GMT
+=======
+      - Mon, 04 Apr 2016 06:36:16 GMT
+      Expires:
+      - Tue, 05 Apr 2016 06:36:16 GMT
+>>>>>>> minor changes
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:

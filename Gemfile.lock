@@ -279,6 +279,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (3.2.0)
     rack (2.0.0.alpha)
       json
     rack-cors (0.4.0)
@@ -458,6 +459,7 @@ DEPENDENCIES
   pry
   pry-byebug
   pry-rails
+  puma
   rack-cors
   rack-test
   rails (= 5.0.0.beta3)
