@@ -11,8 +11,8 @@ Rails.application.routes.draw do
       get 'unify/:id', controller: :users, action: :unify, as: :unify, constraints: {format: /(json)/}
       post 'skills/:id', controller: :users, action: :skills, as: :skills, constraints: {format: /(json)/}
       get 'user/:id/friendship/:friend_id', controller: :users, action: :friendship, as: :friendship,constraints: {format: /(json)/}
-      get 'user/:id/friendship/:friend_id/confirm', controller: :users, action: :confirm_frienship , as: :confirm_frienship, constraints: {format: /(json)/}
-      get 'user/:id/friendship/:friend_id/block', controller: :users, action: :block_frienship , as: :block_frienship, constraints: {format: /(json)/}
+      get 'user/:id/friendship/:friend_id/confirm', controller: :users, action: :confirm_friendship , as: :confirm_friendship, constraints: {format: /(json)/}
+      get 'user/:id/friendship/:friend_id/block', controller: :users, action: :block_friendship , as: :block_friendship, constraints: {format: /(json)/}
       resources :activities, only: [:index]
       post 'mailbox/conversations/compose', controller: :mailbox, action: :compose, as: :mailbox_compose
       post 'mailbox/conversations/reply', controller: :mailbox, action: :reply, as: :mailbox_reply
