@@ -4,8 +4,8 @@ RSpec.describe "Languages management", :type => :request do
 
   let(:user) { FactoryGirl.create(:user) }
 
-  let(:headers) { {HTTP_X_USER_EMAIL: user.email, HTTP_X_USER_TOKEN: user.authentication_token, HTTP_ACCEPT: 'application/json'} }
-  let(:no_headers) { {HTTP_ACCEPT: 'application/json'} }
+  let(:headers) { {'HTTP_X_USER_EMAIL': user.email, 'HTTP_X_USER_TOKEN': user.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
+  let(:no_headers) { {'HTTP_ACCEPT': 'application/json'} }
 
   let!(:french) { FactoryGirl.create(:language, name: 'French')  }
   let!(:english) { FactoryGirl.create(:language, name: 'English')  }
@@ -18,14 +18,14 @@ RSpec.describe "Languages management", :type => :request do
   describe 'GET /api/v1/languages' do
     context 'non authenticated user' do
       it 'return warning msg' do
-        get '/api/v1/languages', {}, no_headers
+        get '/api/v1/languages', params: nil, headers: no_headers
         expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
         expect(response.status).to eq 401
       end
     end
     context 'authenticated user' do
       it "returns list of all languages" do
-        get '/api/v1/languages', {}, headers
+        get '/api/v1/languages', params: nil, headers: headers
         expect(response_json['languages'].size).to eq(3)
         expect(response.status).to eq 200
       end
@@ -35,7 +35,7 @@ RSpec.describe "Languages management", :type => :request do
   describe 'POST /api/v1/languages' do
     context 'non authenticated user' do
       it 'return warning msg' do
-        post '/api/v1/languages', {}, no_headers
+        post '/api/v1/languages', params: nil, headers: no_headers
         expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
         expect(response.status).to eq 401
       end
@@ -43,7 +43,7 @@ RSpec.describe "Languages management", :type => :request do
     context 'authenticated user' do
       context 'valid input' do
         it 'return success msg' do
-          post '/api/v1/languages', {language: french_params }, headers
+          post '/api/v1/languages', params: {language: french_params }, headers: headers
           expect(response_json['message']).to eq('Successfully saved language')
           expect(response.status).to eq 200
         end
@@ -51,7 +51,7 @@ RSpec.describe "Languages management", :type => :request do
 
       context 'invalid input' do
         it 'returns error msg' do
-          post '/api/v1/languages', {language: {language_id: english.id } }, headers
+          post '/api/v1/languages', params: {language: {language_id: english.id } }, headers: headers
           expect( response_json['errors'].keys ).to include('level')
           expect(response.status).to eq 401
         end
@@ -63,14 +63,14 @@ RSpec.describe "Languages management", :type => :request do
   describe 'GET /api/v1/user/languages' do
     context 'non authenticated user' do
       it 'return warning msg' do
-        get '/api/v1/user/languages', {}, no_headers
+        get '/api/v1/user/languages', params: nil, headers: no_headers
         expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
         expect(response.status).to eq 401
       end
     end
     context 'authenticated user' do
       it "returns list of user languages" do
-        get '/api/v1/user/languages', {}, headers
+        get '/api/v1/user/languages', params: nil, headers: headers
         expect(response_json['languages'].size).to eq(2)
         expect(response.status).to eq 200
       end
@@ -80,7 +80,7 @@ RSpec.describe "Languages management", :type => :request do
   describe 'PUT /api/v1/user/languages/:id' do
     context 'non authenticated user' do
       it 'return warning msg' do
-        put "/api/v1/languages/#{first_lang.id}", {}, no_headers
+        put "/api/v1/languages/#{first_lang.id}", params: nil, headers: no_headers
         expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
         expect(response.status).to eq 401
       end
@@ -88,14 +88,14 @@ RSpec.describe "Languages management", :type => :request do
     context 'authenticated user' do
       context 'valid input' do
         it 'returns success message' do
-          put "/api/v1/languages/#{first_lang.id}", {language: {level: 'fluent', written: false}}, headers
+          put "/api/v1/languages/#{first_lang.id}", params: {language: {level: 'fluent', written: false}}, headers: headers
           expect(response_json['message']).to eq('Successfully updated language')
           expect(response.status).to eq 200
         end
       end
       context 'invalid input' do
         it 'returns error message' do
-          put "/api/v1/languages/#{first_lang.id}", {language: {level: nil, spoken: nil, written: nil}}, headers
+          put "/api/v1/languages/#{first_lang.id}", params: {language: {level: nil, spoken: nil, written: nil}}, headers: headers
           expect( response_json['errors'].keys ).to include('level')
           expect(response.status).to eq 401
         end
@@ -106,14 +106,14 @@ RSpec.describe "Languages management", :type => :request do
   describe 'DELETE /api/v1/languages/:id' do
     context 'non authenticated user' do
       it 'return warning msg' do
-        delete "/api/v1/languages/#{first_lang.id}", {}, no_headers
+        delete "/api/v1/languages/#{first_lang.id}", params: nil, headers: no_headers
         expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
         expect(response.status).to eq 401
       end
     end
     context 'authenticated user' do
       it 'return warning msg' do
-        delete "/api/v1/languages/#{first_lang.id}", {}, headers
+        delete "/api/v1/languages/#{first_lang.id}", params: nil, headers: headers
         expect(response_json['message']).to eq('Successfully deleted language')
         expect(response.status).to eq 200
       end
