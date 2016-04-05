@@ -28,7 +28,7 @@ Feature: As a system administrator
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I fill in "Skill list" with "java, ruby, html"
-    And I click on "Create User"
+    And I click on "Create user"
     Then I should see "User was successfully created"
     Then the updated users skills should be "java, ruby, html"
 
@@ -36,7 +36,7 @@ Feature: As a system administrator
     Given "Thomas" skills are "rspec, testing"
     And I click on "Edit" for "Thomas"
     And I fill in "Skill list" with "java, ruby, html"
-    And I click on "Update User"
+    And I click on "Update user"
     Then I should see "User was successfully updated"
     Then the updated users skills should be "rspec, testing, java, ruby, html"
 
@@ -46,7 +46,7 @@ Feature: As a system administrator
     And I click on "Edit" for "Thomas"
     And I delete the content of "user_skill_list"
     And I set skill tags to "html"
-    And I click on "Update User"
+    And I click on "Update user"
     Then I should see "User was successfully updated"
     Then the updated users skills should be "html"
 
