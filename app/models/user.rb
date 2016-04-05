@@ -83,11 +83,13 @@ class User < ApplicationRecord
   end
 
   def messages_count
-    self.mailbox.conversations.count(:id, distinct: true)
+    #Rails 5 error with .count(:id, distinct: true)
+    self.mailbox.conversations.distinct.count(:id)
   end
 
   def unread_messages_count
-    self.mailbox.conversations(unread: true).count(:id, distinct: true)
+    #Rails 5 error with .count(:id, distinct: true)
+    self.mailbox.conversations(unread: true).distinct.count(:id)
   end
   
   private
