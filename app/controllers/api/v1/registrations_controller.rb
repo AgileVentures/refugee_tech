@@ -2,7 +2,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, only: [:create]
   before_action :set_default_response_format
 
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   include Api::V1::RegistrationsDoc
   clear_respond_to
   respond_to :json

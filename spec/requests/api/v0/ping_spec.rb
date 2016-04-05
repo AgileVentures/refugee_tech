@@ -9,7 +9,7 @@ describe Api::V0::PingController do
 
     it 'should return Pong' do
 
-      get '/api/v0/ping', {}, {'X-User-Email' => user.email, 'X-User-Token' => user.authentication_token }
+      get '/api/v0/ping', params: nil, headers: {'X-User-Email': user.email, 'X-User-Token': user.authentication_token }
       expect(response.status).to eq 200
       expect(response_json['message']).to eq 'Pong'
     end
