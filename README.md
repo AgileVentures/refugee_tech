@@ -38,3 +38,12 @@ I have a vision of an application that helps people get in touch and start inter
 It is my belief that it is a project that fits AgileVentures.org and that together we can create an interesting solution that will help at least some of the many people who long for a new, safe life in Europe.
 
 /Thomas Ochamn ([@tochman](https://github.com/tochman))
+
+###About AgileVentures
+
+Agile Ventures is a non-profit organization dedicated to crowdsourced learning and project development. We run a [project incubator](http://www.agileventures.org/projects) that stimulates and supports development of social innovations, [open source projects and free software][oo-sw]. But first and foremost, we are a [place for learning][about-us] and personal development with [members][members] from across the world with various levels of competence and experience in software development.
+
+We are proudly using Agile methods and Ruby on Rails as the framework to deliver well tested and solid software.
+
+The principal organization behind this project is AgileVentures, a UK based charity.
+
