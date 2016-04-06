@@ -10,7 +10,7 @@ Mobile client repo: https://github.com/AgileVentures/project_unify_mobile
 | **Test coverage**         |                  |
 | Coveralls                |  Not configured   |
 | **Continuous integration** |    |
-| Semaphore CI (master)       | Not canfigured|
+| Semaphore CI (master)       | Not configured|
 | Semaphore CI (staging)       | Not configured|
 | Semaphore CI (develop)      | [![Build Status](https://semaphoreci.com/api/v1/agileventures/project_unify/branches/develop/badge.svg)](https://semaphoreci.com/agileventures/project_unify)  |
 | **Code quality**            |         |
