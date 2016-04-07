@@ -1,5 +1,5 @@
 class Api::V1::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   before_action :set_default_response_format
   clear_respond_to
   respond_to :json

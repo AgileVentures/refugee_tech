@@ -148,7 +148,7 @@ describe Api::V1::UsersController do
     end  
     
     it 'should make frienships between users' do
-      get "/api/v1/user/#{user_1.id}/friendship/#{user_2.id}", {}, headers
+      get "/api/v1/user/#{user_1.id}/friendship/#{user_2.id}", params: nil, headers: headers
       expect(response_json["message"]).to eq "successfully invited user #{user_2.user_name}"
       expect(user_2.invited_by? user_1)
       expect(user_2.invited? user_1)
