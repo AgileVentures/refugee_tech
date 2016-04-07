@@ -29,6 +29,15 @@ GIT
       selectize-rails (~> 0.12.0)
 
 GIT
+  remote: git://github.com/agileventures/simplecov.git
+  revision: 100c8ded840fe7e8ba3b448b88a61162a8f479e3
+  specs:
+    simplecov (0.11.2)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+
+GIT
   remote: git://github.com/mailboxer/mailboxer.git
   revision: 99d16871375c0a34097d1ef122a9e42fc918794c
   specs:
@@ -375,6 +384,7 @@ GEM
     sexp_processor (4.6.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+<<<<<<< 0d3ca2cb595b19941a80c462ef57768d67a0f52c
 <<<<<<< 1878be4776cfd66fed68073aabb5c8301fe43bdd
     simple_token_authentication (1.12.0)
       actionmailer (>= 3.2.6, < 5)
@@ -386,6 +396,8 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
 >>>>>>> changes to gemfile, withoit token_authenticable
+=======
+>>>>>>> updated gemfile for simplecov
     simplecov-html (0.10.0)
     slim (3.0.6)
       temple (~> 0.7.3)
@@ -487,7 +499,11 @@ DEPENDENCIES
 >>>>>>> changes to gemfile, withoit token_authenticable
 =======
   simple_token_authentication!
+<<<<<<< 0d3ca2cb595b19941a80c462ef57768d67a0f52c
 >>>>>>> small changes
+=======
+  simplecov!
+>>>>>>> updated gemfile for simplecov
   spring
   therubyracer
   turbolinks
