@@ -168,9 +168,7 @@ RSpec.describe User, type: :model do
     end
     
     it 'should set the address to user by ip address when are no lat, long' do
-      expect(user_2.city).to eq 'Yıldırım'
-      expect(user_2.state).to eq 'Bursa'
-      expect(user_2.country).to eq 'Turkey'      
+      expect(user_2.country).to eq 'Denmark'      
     end
   end
   

@@ -89,4 +89,39 @@ http_interactions:
         LAogICAic3RhdHVzIiA6ICJPSyIKfQo=
     http_version: 
   recorded_at: Thu, 17 Mar 2016 08:35:08 GMT
+- request:
+    method: get
+    uri: http://freegeoip.net/json/195.41.5.202
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Vary:
+      - Origin
+      X-Database-Date:
+      - Fri, 25 Mar 2016 01:50:28 GMT
+      Date:
+      - Thu, 31 Mar 2016 09:32:43 GMT
+      Content-Length:
+      - '211'
+    body:
+      encoding: UTF-8
+      string: '{"ip":"195.41.5.202","country_code":"DK","country_name":"Denmark","region_code":"","region_name":"","city":"","zip_code":"","time_zone":"Europe/Copenhagen","latitude":55.6761,"longitude":12.5683,"metro_code":0}
+
+'
+    http_version: 
+  recorded_at: Thu, 31 Mar 2016 09:32:43 GMT
 recorded_with: VCR 3.0.1
