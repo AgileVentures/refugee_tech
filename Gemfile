@@ -25,6 +25,7 @@ gem 'fb_graph2'
 gem 'mailboxer'
 gem 'friendly_id', '~> 5.0.0'
 gem 'amistad'
+gem 'cancancan', '~> 1.13'
 
 group :development, :test do
   gem 'coveralls', require: false
