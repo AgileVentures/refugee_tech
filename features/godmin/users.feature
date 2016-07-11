@@ -38,7 +38,7 @@ Feature: As a system admin
     And I fill in "Password" with "password5"
     And I fill in "Password confirmation" with "password5"
     And I fill in "Introduction" with "Hello World, this is me!"
-    And I click on "Create user"
+    And I click on "Create User"
     Then I should see "User was successfully created"
     And I should see 5 instances of User
 
@@ -46,7 +46,7 @@ Feature: As a system admin
     And I click on "Edit" for "Thomas"
     And I fill in "User name" with "Thomas Ochman"
     And I fill in "Email" with "tochman@newmail.com"
-    And I click on "Update user"
+    And I click on "Update User"
     Then I should see "User was successfully updated"
     And I should see "Thomas Ochman"
     And I should see "tochman@newmail.com"

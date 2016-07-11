@@ -47,6 +47,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'faker'
+  gem 'cucumber'
+  
 end
 
 group :development do
@@ -58,7 +60,7 @@ group :development do
 end
 
 group :test do
-  gem 'cucumber'
+  #gem 'cucumber'
   #cucumber-rails just generator for cucumber tests, atm not supporting rails-5
   #gem 'cucumber-rails', require: false
   gem 'database_cleaner'
@@ -67,6 +69,9 @@ group :test do
   gem 'rack-test'
   gem 'vcr'
   gem 'webmock'
+  gem 'cucumber-rails', :require => false
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :production do

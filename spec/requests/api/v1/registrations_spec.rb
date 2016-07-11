@@ -35,7 +35,7 @@ describe Api::V1::RegistrationsController do
 
       it 'with an invalid email returns error message' do
         post '/api/v1/users', params: {user:{user_name: 'Thomas',
-                                     email: 'thomas@craft',
+                                     email: 'thomas@cr aft',
                                      gender: 'Male',
                                      password: 'password',
                                      password_confirmation: 'password'}}, headers: headers
