@@ -33,13 +33,13 @@ describe Api::V1::SessionsController do
 
       it 'invalid password returns error message' do
         post '/api/v1/users/sign_in', params: {user: {email: "#{user.email}", password: 'wrong_password'}}, headers: headers
-        expect(response_json).to eq('error' => 'Invalid email or password.')
+        expect(response_json).to eq('error' => 'Invalid Email or password.')
         expect(response.status).to eq 401
       end
 
       it 'invalid email returns error message' do
         post '/api/v1/users/sign_in', params: {user: {email: 'wrong@email.com', password: "#{user.password}"}}, headers: headers
-        expect(response_json).to eq('error' => 'Invalid email or password.')
+        expect(response_json).to eq('error' => 'Invalid Email or password.')
         expect(response.status).to eq 401
       end
     end

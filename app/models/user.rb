@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :gender,
     inclusion: { in: [ 'Male', 'Female', 'male', 'female', nil ],
     message: "%{value} is not a valid gender" }
-
+    
   validates_length_of :introduction, maximum: 140, message: "Maximum length is 140 characters"
 
   devise :database_authenticatable, :registerable,
