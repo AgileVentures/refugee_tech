@@ -12,7 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'json'
 #needs to be changed to official master as soon as rails 5 is supported
-gem 'godmin',  github: "agileventures/godmin" 
+gem 'godmin'#,  github: "agileventures/godmin" 
 gem 'godmin-tags'
 gem 'apipie-rails'
 gem 'rack-cors', require: 'rack/cors'
@@ -47,7 +47,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'faker'
-  gem 'cucumber'
+ 
   
 end
 
@@ -60,7 +60,7 @@ group :development do
 end
 
 group :test do
-  #gem 'cucumber'
+  gem 'cucumber'
   #cucumber-rails just generator for cucumber tests, atm not supporting rails-5
   #gem 'cucumber-rails', require: false
   gem 'database_cleaner'
