@@ -61,8 +61,6 @@ end
 
 group :test do
   gem 'cucumber'
-  #cucumber-rails just generator for cucumber tests, atm not supporting rails-5
-  #gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
