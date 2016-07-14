@@ -5,41 +5,41 @@ describe Api::V1::MailboxController do
   let(:receiver_1) { FactoryGirl.create(:user, user_name: 'Anders') }
   let(:receiver_2) { FactoryGirl.create(:user, user_name: 'Kalle') }
 
-  let(:sender_headers) { {HTTP_X_USER_EMAIL: sender.email, HTTP_X_USER_TOKEN: sender.authentication_token, HTTP_ACCEPT: 'application/json'} }
-  let(:receiver_1_headers) { {HTTP_X_USER_EMAIL: receiver_1.email, HTTP_X_USER_TOKEN: receiver_1.authentication_token, HTTP_ACCEPT: 'application/json'} }
-  let(:receiver_2_headers) { {HTTP_X_USER_EMAIL: receiver_2.email, HTTP_X_USER_TOKEN: receiver_2.authentication_token, HTTP_ACCEPT: 'application/json'} }
+  let(:sender_headers) { {'HTTP_X_USER_EMAIL': sender.email, 'HTTP_X_USER_TOKEN': sender.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
+  let(:receiver_1_headers) { {'HTTP_X_USER_EMAIL': receiver_1.email, 'HTTP_X_USER_TOKEN': receiver_1.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
+  let(:receiver_2_headers) { {'HTTP_X_USER_EMAIL': receiver_2.email, 'HTTP_X_USER_TOKEN': receiver_2.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
 
-  let(:no_headers) { {HTTP_ACCEPT: 'application/json'} }
+  let(:no_headers) { {'HTTP_ACCEPT': 'application/json'} }
 
   describe 'should require authentication' do
     let(:expected_response) { 'You need to sign in or sign up before continuing.' }
 
     it '#inbox' do
-      get '/api/v1/mailbox/conversations', {}, no_headers
+      get '/api/v1/mailbox/conversations', params: nil, headers: no_headers
       expect(response_json['error']).to eq expected_response
       expect(response.status).to eq 401
     end
 
     it '#trash' do
-      get '/api/v1/mailbox/conversations/trash', {}, no_headers
+      get '/api/v1/mailbox/conversations/trash', params: nil, headers: no_headers
       expect(response_json['error']).to eq expected_response
       expect(response.status).to eq 401
     end
 
     it '#messages_count' do
-      get '/api/v1/mailbox/conversations/messages_count', {}, no_headers
+      get '/api/v1/mailbox/conversations/messages_count', params: nil, headers: no_headers
       expect(response_json['error']).to eq expected_response
       expect(response.status).to eq 401
     end
 
     it '#compose' do
-      post '/api/v1/mailbox/conversations/compose', {}, no_headers
+      post '/api/v1/mailbox/conversations/compose', params: nil, headers: no_headers
       expect(response_json['error']).to eq expected_response
       expect(response.status).to eq 401
     end
 
     it '#reply' do
-      post '/api/v1/mailbox/conversations/compose', {}, no_headers
+      post '/api/v1/mailbox/conversations/compose', params: nil, headers: no_headers
       expect(response_json['error']).to eq expected_response
       expect(response.status).to eq 401
     end
@@ -55,7 +55,7 @@ describe Api::V1::MailboxController do
     end
 
     it 'displays conversations while displaying receivers inbox' do
-      get '/api/v1/mailbox/conversations', {}, sender_headers
+      get '/api/v1/mailbox/conversations', params: nil, headers: sender_headers
       first_message = response_json['conversations'].first
       expect(first_message['subject']).to eq 'subject 1'
       expect(first_message['from']['user_name']).to eq 'Anders'
@@ -63,7 +63,7 @@ describe Api::V1::MailboxController do
     end
 
     it 'does not display conversation while displaying other users inbox' do
-      get '/api/v1/mailbox/conversations', {}, receiver_2_headers
+      get '/api/v1/mailbox/conversations', params: nil, headers: receiver_2_headers
       first_message = response_json['conversations'].first
       expect(first_message['subject']).not_to eq 'subject 1'
       expect(first_message['from']['user_name']).not_to eq 'Thomas'
@@ -74,12 +74,12 @@ describe Api::V1::MailboxController do
   describe 'Compose' do
 
     it 'sends a message with valid settings' do
-      post '/api/v1/mailbox/conversations/compose', {receiver_id: receiver_1.id, subject: 'Yo yo!', message: 'Wanna hang out?'}, sender_headers
+      post '/api/v1/mailbox/conversations/compose', params: {receiver_id: receiver_1.id, subject: 'Yo yo!', message: 'Wanna hang out?'}, headers: sender_headers
       expect(response_json['message']).to eq 'success'
     end
 
     it 'rejects a message without receiver' do
-      post '/api/v1/mailbox/conversations/compose', {receiver_id: 999999, subject: 'Yo yo!', message: 'Wanna hang out?'}, sender_headers
+      post '/api/v1/mailbox/conversations/compose', params: {receiver_id: 999999, subject: 'Yo yo!', message: 'Wanna hang out?'}, headers: sender_headers
       expect(response_json['error']).to eq 'failed to create message'
     end
 
@@ -92,12 +92,12 @@ describe Api::V1::MailboxController do
     end
 
     it 'replies to  a message with valid settings' do
-      post '/api/v1/mailbox/conversations/reply', {conversation_id: @conversation.id, receiver_id: receiver_1.id, subject: 'Yo yo!', message: 'Wanna hang out?'}, sender_headers
+      post '/api/v1/mailbox/conversations/reply', params: {conversation_id: @conversation.id, receiver_id: receiver_1.id, subject: 'Yo yo!', message: 'Wanna hang out?'}, headers: sender_headers
       expect(response_json['message']).to eq 'success'
     end
 
     it 'rejects a reply without conversation' do
-      post '/api/v1/mailbox/conversations/reply', {conversation_id: 999999, subject: 'Yo yo!', message: 'Wanna hang out?'}, sender_headers
+      post '/api/v1/mailbox/conversations/reply', params: {conversation_id: 999999, subject: 'Yo yo!', message: 'Wanna hang out?'}, headers: sender_headers
       expect(response_json['error']).to eq 'failed to create message'
     end
 
@@ -113,14 +113,14 @@ describe Api::V1::MailboxController do
     end
 
     it 'returns message count' do
-      get '/api/v1/mailbox/conversations/messages_count', {}, sender_headers
+      get '/api/v1/mailbox/conversations/messages_count', params: nil, headers: sender_headers
       expect(response_json['messages_count']).to eq 2
       expect(response_json['unread_messages_count']).to eq 1
     end
 
     describe 'marks a conversation as read' do
       before do
-        post '/api/v1/mailbox/conversations/update', {id: @receiver_1_conversation.id}, sender_headers
+        post '/api/v1/mailbox/conversations/update', params: {id: @receiver_1_conversation.id}, headers: sender_headers
       end
 
       it '#is_read? returns true' do
@@ -128,7 +128,7 @@ describe Api::V1::MailboxController do
       end
 
       it '#unread_messages_count returns 0' do
-        get '/api/v1/mailbox/conversations/messages_count', {}, sender_headers
+        get '/api/v1/mailbox/conversations/messages_count', params: nil, headers: sender_headers
         expect(response_json['messages_count']).to eq 2
         expect(response_json['unread_messages_count']).to eq 0
       end

@@ -1,15 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
-require "rails"
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -17,11 +8,14 @@ Bundler.require(*Rails.groups)
 
 module ProjectUnify
   class Application < Rails::Application
-    ActsAsTaggableOn.remove_unused_tags = true
-    ActsAsTaggableOn.force_lowercase = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+     ActsAsTaggableOn.remove_unused_tags = true
+     ActsAsTaggableOn.force_lowercase = true
+     # Settings in config/environments/* take precedence over those specified here.
+     # Application configuration should go into files in config/initializers
+     # -- all .rb files in that directory are automatically loaded.
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
@@ -31,11 +25,14 @@ module ProjectUnify
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # NO GOOD WAY - JUST WIP & TRYING
+    # NEEDS TO BE REFACTORED SOON
+    # TODO!
+    config.action_controller.permit_all_parameters = true
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-    config.action_mailer.default_url_options = { host: 'example.com' }
+    #config.active_record.raise_in_transactional_callbacks = true
 
-    config.middleware.insert_before 0, 'Rack::Cors' do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
         resource '*', headers: :any, methods: [:get, :put, :delete, :post, :options]

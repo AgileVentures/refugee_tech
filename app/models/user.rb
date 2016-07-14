@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Amistad::FriendModel
   acts_as_token_authenticatable
   extend FriendlyId
@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :gender,
     inclusion: { in: [ 'Male', 'Female', 'male', 'female', nil ],
     message: "%{value} is not a valid gender" }
-
+    
   validates_length_of :introduction, maximum: 140, message: "Maximum length is 140 characters"
 
   devise :database_authenticatable, :registerable,
@@ -83,11 +83,13 @@ class User < ActiveRecord::Base
   end
 
   def messages_count
-    self.mailbox.conversations.count(:id, distinct: true)
+    #Rails 5 error with .count(:id, distinct: true)
+    self.mailbox.conversations.distinct.count(:id)
   end
 
   def unread_messages_count
-    self.mailbox.conversations(unread: true).count(:id, distinct: true)
+    #Rails 5 error with .count(:id, distinct: true)
+    self.mailbox.conversations(unread: true).distinct.count(:id)
   end
   
   private

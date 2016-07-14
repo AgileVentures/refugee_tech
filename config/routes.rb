@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   apipie
 
   root to: 'application#welcome'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       get 'mailbox/conversations/trash', controller: :mailbox, action: :trash, as: :mailbox_trash
       get 'mailbox/conversations/messages_count', controller: :mailbox, action: :messages_count, as: :messages_count
     end
-
+    
     namespace :v0 do
       resources :ping, only: [:index], constraints: {format: /(json)/}
     end
@@ -37,5 +37,7 @@ Rails.application.routes.draw do
   resources :tags, as: 'acts_as_taggable_on_tag'
   resource :session, only: [:new, :create, :destroy]
 
+  # Serve websocket cable requests in-process
+  # mount ActionCable.server => '/cable'
 
 end

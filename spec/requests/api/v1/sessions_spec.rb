@@ -3,13 +3,13 @@ require 'rails_helper'
 describe Api::V1::SessionsController do
 
   let(:user) { FactoryGirl.create(:user) }
-  let(:headers) { {HTTP_ACCEPT: 'application/json'} }
+  let(:headers) { {'HTTP_ACCEPT': 'application/json'} }
 
   describe 'POST /api/v1/users/sign_in' do
 
     describe 'user log in' do
       it 'valid credentials returns user & token' do
-        post '/api/v1/users/sign_in', {user: {email: "#{user.email}", password: "#{user.password}"}}, headers
+        post '/api/v1/users/sign_in', params: {user: {email: "#{user.email}", password: "#{user.password}"}}, headers: headers
 
 
         #{'X-User-Email' => user.email, 'X-User-Token' => user.authentication_token, 'HTTP_ACCEPT' => 'application/json' }
@@ -32,14 +32,14 @@ describe Api::V1::SessionsController do
       end
 
       it 'invalid password returns error message' do
-        post '/api/v1/users/sign_in', {user: {email: "#{user.email}", password: 'wrong_password'}}, headers
-        expect(response_json).to eq('error' => 'Invalid email or password.')
+        post '/api/v1/users/sign_in', params: {user: {email: "#{user.email}", password: 'wrong_password'}}, headers: headers
+        expect(response_json).to eq('error' => 'Invalid Email or password.')
         expect(response.status).to eq 401
       end
 
       it 'invalid email returns error message' do
-        post '/api/v1/users/sign_in', {user: {email: 'wrong@email.com', password: "#{user.password}"}}, headers
-        expect(response_json).to eq('error' => 'Invalid email or password.')
+        post '/api/v1/users/sign_in', params: {user: {email: 'wrong@email.com', password: "#{user.password}"}}, headers: headers
+        expect(response_json).to eq('error' => 'Invalid Email or password.')
         expect(response.status).to eq 401
       end
     end
@@ -47,13 +47,13 @@ describe Api::V1::SessionsController do
   end
 
   describe 'DELETE /api/v1/users/sign_out' do
-    let(:sign_in_headers) { {HTTP_X_USER_EMAIL: user.email, HTTP_X_USER_TOKEN: user.authentication_token, HTTP_ACCEPT: 'application/json'} }
+    let(:sign_in_headers) { {'HTTP_X_USER_EMAIL': user.email, 'HTTP_X_USER_TOKEN': user.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
 
     describe 'user log out' do
       before do
-        post '/api/v1/users/sign_in', {user: {email: "#{user.email}", password: "#{user.password}"}}, headers
+        post '/api/v1/users/sign_in', params: {user: {email: "#{user.email}", password: "#{user.password}"}}, headers: headers
         @old_token = user.authentication_token
-        delete '/api/v1/users/sign_out', {}, sign_in_headers
+        delete '/api/v1/users/sign_out', params: nil, headers: sign_in_headers
       end
 
       it 'should return success message' do
@@ -71,11 +71,11 @@ describe Api::V1::SessionsController do
     end
 
     describe 'with wrong headers' do
-      let(:wrong_sign_in_headers) { {HTTP_X_USER_EMAIL: user.email, HTTP_X_USER_TOKEN: 'xxxxxxxx', HTTP_ACCEPT: 'application/json'} }
+      let(:wrong_sign_in_headers) { {'HTTP_X_USER_EMAIL': user.email, 'HTTP_X_USER_TOKEN': 'xxxxxxxx', 'HTTP_ACCEPT': 'application/json'} }
 
       before do
-        post '/api/v1/users/sign_in', {user: {email: "#{user.email}", password: "#{user.password}"}}, headers
-        delete '/api/v1/users/sign_out', {}, wrong_sign_in_headers
+        post '/api/v1/users/sign_in', params: {user: {email: "#{user.email}", password: "#{user.password}"}}, headers: headers
+        delete '/api/v1/users/sign_out', params: nil, headers: wrong_sign_in_headers
 
       end
 
