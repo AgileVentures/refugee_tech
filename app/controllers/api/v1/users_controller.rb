@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApiController
 
   def unify
     @user = User.find(params[:id])
-    @unified_users = @user.unify
+    @unified_users = @user.unify(location: unify_params[:location])
   end
 
   def skills
@@ -62,6 +62,13 @@ class Api::V1::UsersController < ApiController
       user.errors.add(:users, 'could not perform operation')
       render json: {errors: user.errors}, status: 401
     end    
+  end
+
+  private
+  def unify_params
+    permitted = params.permit(:location)
+    permitted[:location] = permitted[:location] == "true" ? true : false
+    permitted
   end
 end
 

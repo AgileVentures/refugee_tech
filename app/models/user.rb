@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def unify(rad = 20, location: false )
-    results = location == true ? unify_with_location_and_skills(rad) : unify_with_skills
+    results = location ? unify_with_location_and_skills(rad) : unify_with_skills
     self.mentor ? results.mentorees : results
   end
 
