@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def unify(rad = 20, location: false )
-    results = location == true ? self.nearbys(rad).joins(:tags).where(tags: {name: tags.pluck(:name)}).uniq : self.find_related_skills
+    results = location == true ? unify_with_location_and_skills(rad) : unify_with_skills
     self.mentor ? results.mentorees : results
   end
 
@@ -49,6 +49,7 @@ class User < ApplicationRecord
   end
 
   def self.new_with_session(params, session)
+    #binding.pry
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
         user.email = data['email'] if user.email.blank?
@@ -99,6 +100,14 @@ class User < ApplicationRecord
 
   def address
     [city, state, country].compact.join(', ')
+  end
+
+  def unify_with_location_and_skills(rad)
+    self.nearbys(rad).joins(:tags).where(tags: {name: tags.pluck(:name)}).distinct
+  end
+
+  def unify_with_skills
+    self.find_related_skills
   end
 
 end
