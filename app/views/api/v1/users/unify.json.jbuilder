@@ -12,7 +12,7 @@ json.matches(matches) do |match|
     json.id match.id
     json.user_name match.user_name
     json.created_at match.created_at
-    json.skills match.skill_list
+    json.skills match.skill_list.sort
     json.profile api_v1_user_url(match)
   end
 end

@@ -35,14 +35,14 @@ describe Api::V1::UsersController do
 
   end
 
-  describe 'Get /api/v1/users/:id' do
+  describe 'GET /api/v1/users/:id' do
     let(:resource) { FactoryGirl.create(:user) }
     before do
       resource.update(skill_list: 'java-script, testing, ruby')
     end
 
     it 'should require authentication' do
-      get "/api/v1/users/#{resource.id}", params: nil, headers:  no_headers
+      get "/api/v1/users/#{resource.id}", params: nil, headers: no_headers
       expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
       expect(response.status).to eq 401
     end
@@ -72,12 +72,14 @@ describe Api::V1::UsersController do
     let(:user_2) { FactoryGirl.create(:user, user_name: 'Anders') }
     let(:user_3) { FactoryGirl.create(:user, user_name: 'Kalle') }
     let(:user_4) { FactoryGirl.create(:user, user_name: 'Sam', mentor: true) }
+    let(:user_5) { FactoryGirl.create(:user, user_name: 'Otto') }
 
     before do
       user_1.update(skill_list: 'java-script, testing, ruby')
       user_2.update(skill_list: 'java-script, java, html')
       user_3.update(skill_list: 'java, html')
       user_4.update(skill_list: 'testing, ruby')
+      user_5.update(skill_list: 'java-script, testing, ruby')
     end
 
     it 'should require authentication' do
@@ -86,20 +88,54 @@ describe Api::V1::UsersController do
       expect(response.status).to eq 401
     end
 
-    it 'should return list of users' do
-      get "/api/v1/unify/#{user_1.id}", params: nil, headers: headers
-      expected_response = []
-      user_1.unify.each do |user|
-        hash = {id: user.id,
-                user_name: user.user_name,
-                created_at: user.created_at,
-                skills: user.skill_list,
-                profile: api_v1_user_url(user)}
-        expected_response << {user: hash}
+    describe 'by skills' do
+      it 'should return list of users' do
+        get "/api/v1/unify/#{user_1.id}", params: nil, headers: headers
+        expected_response = [{user: {id: user_5.id,
+                                     user_name: user_5.user_name,
+                                     created_at: user_5.created_at,
+                                     skills: user_5.skill_list.sort,
+                                     profile: api_v1_user_url(user_5)}
+                             },
+                             {user: {id: user_2.id,
+                                     user_name: user_2.user_name,
+                                     created_at: user_2.created_at,
+                                     skills: user_2.skill_list.sort,
+                                     profile: api_v1_user_url(user_2)}
+                             }]
+        expect(response_json['matches']).to eq JSON.parse(expected_response.to_json)
       end
-      expect(response_json['matches']).to eq JSON.parse(expected_response.to_json)
     end
 
+    describe 'by location and skills' do
+
+      before do
+        user_1.update(latitude: '57.708870', longitude: '11.97456') #Gothenburg, Sweden
+        user_2.update(latitude: '57.708870', longitude: '11.97456') #Gothenburg, Sweden
+        user_3.update(latitude: '57.708870', longitude: '11.97456') #Gothenburg, Sweden
+        user_4.update(latitude: '53.551085', longitude: '9.993682') #Hamburg, Germany
+        user_5.update(latitude: '53.551085', longitude: '9.993682') #Hamburg, Germany
+      end
+
+      it 'should return list of users' do
+        get "/api/v1/unify/#{user_1.id}", params: {location: true}, headers: headers
+
+        expected_response = [{user: {id: user_2.id,
+                                     user_name: user_2.user_name,
+                                     created_at: user_2.created_at,
+                                     skills: user_2.skill_list.sort,
+                                     profile: api_v1_user_url(user_2)}
+                             }]
+        expect(response_json['matches']).to eq JSON.parse(expected_response.to_json)
+      end
+
+      it 'should not return a mentor when mentor requests to unify' do
+        user_2.update(mentor: true)
+        get "/api/v1/unify/#{user_1.id}", params: {location: true}, headers: headers
+        expect(response_json['matches']).to be_empty
+      end
+
+    end
   end
 
   describe 'POST /api/v1/skills/:id' do
@@ -115,7 +151,7 @@ describe Api::V1::UsersController do
     end
 
     it 'should update authorized users skills list' do
-      post "/api/v1/skills/#{user_1.id}",  params: {skills: 'test, programing, cooking'}, headers: headers
+      post "/api/v1/skills/#{user_1.id}", params: {skills: 'test, programing, cooking'}, headers: headers
       expect(response_json['message']).to eq('success')
       expect(response.status).to eq 200
     end
@@ -134,19 +170,19 @@ describe Api::V1::UsersController do
     end
 
   end
-  
+
   describe 'GET api/v1/user/:id/friendship/:friend_id' do
     let(:user_1) { FactoryGirl.create(:user) }
-    let(:user_2) { FactoryGirl.create(:user) }  
-    
+    let(:user_2) { FactoryGirl.create(:user) }
+
     let(:headers) { {'HTTP_X_USER_EMAIL': user_1.email, 'HTTP_X_USER_TOKEN': user_1.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
-    
+
     it 'should require authentication' do
       get "/api/v1/user/#{user_2.id}/friendship/#{user_1.id}"
       expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
       expect(response.status).to eq 401
-    end  
-    
+    end
+
     it 'should make frienships between users' do
       get "/api/v1/user/#{user_1.id}/friendship/#{user_2.id}", params: nil, headers: headers
       expect(response_json["message"]).to eq "successfully invited user #{user_2.user_name}"
@@ -155,21 +191,21 @@ describe Api::V1::UsersController do
       expect(user_2.pending_invited_by).to eq [user_1]
     end
   end
-  
+
   describe 'GET api/v1/user/:id/friendship/:friend_id/confirm' do
     let(:user_1) { FactoryGirl.create(:user) }
-    let(:user_2) { FactoryGirl.create(:user) } 
-    let(:user_3) { FactoryGirl.create(:user) } 
-    
+    let(:user_2) { FactoryGirl.create(:user) }
+    let(:user_3) { FactoryGirl.create(:user) }
+
     let(:headers) { {'HTTP_X_USER_EMAIL': user_1.email, 'HTTP_X_USER_TOKEN': user_1.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
-    
+
     it 'should require authentication' do
       user_1.invite user_2
       get "/api/v1/user/#{user_2.id}/friendship/#{user_1.id}/confirm"
       expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
       expect(response.status).to eq 401
     end
-    
+
     it 'should confirm a friendship' do
       user_2.invite user_1
       get "/api/v1/user/#{user_1.id}/friendship/#{user_2.id}/confirm", params: nil, headers: headers
@@ -177,7 +213,7 @@ describe Api::V1::UsersController do
       expect(user_2.friend_with? user_1)
       expect(user_1.friend_with? user_2)
     end
-    
+
     it 'should have multiple friendships' do
       user_2.invite user_1
       user_3.invite user_1
@@ -186,20 +222,20 @@ describe Api::V1::UsersController do
       expect(user_1.friends).to eq [user_2, user_3]
     end
   end
-  
+
   describe 'GET api/v1/user/:id/friendship/:friend_id/block' do
     let(:user_1) { FactoryGirl.create(:user) }
-    let(:user_2) { FactoryGirl.create(:user) } 
-    
+    let(:user_2) { FactoryGirl.create(:user) }
+
     let(:headers) { {'HTTP_X_USER_EMAIL': user_2.email, 'HTTP_X_USER_TOKEN': user_2.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
-    
+
     it 'should require authentication' do
       user_1.invite user_2
       get "/api/v1/user/#{user_2.id}/friendship/#{user_1.id}/block"
       expect(response_json['error']).to eq 'You need to sign in or sign up before continuing.'
       expect(response.status).to eq 401
-    end  
-    
+    end
+
     it 'should block a friendship request' do
       user_1.invite user_2
       get "/api/v1/user/#{user_2.id}/friendship/#{user_1.id}/block", params: nil, headers: headers
@@ -207,16 +243,16 @@ describe Api::V1::UsersController do
       expect(user_2.friend_with? user_1).to be_falsey
       expect(user_2.blocked? user_1)
     end
-    
+
     it 'should block exsisting friendship' do
       user_1.invite user_2
       user_2.approve user_1
       get "/api/v1/user/#{user_2.id}/friendship/#{user_1.id}/block", params: nil, headers: headers
       expect(response_json["message"]).to eq "successfully blocked friendship with #{user_1.user_name}"
       expect(user_2.friend_with? user_1).to be_falsey
-      expect(user_2.blocked? user_1)      
+      expect(user_2.blocked? user_1)
     end
   end
-  
+
 end
 
