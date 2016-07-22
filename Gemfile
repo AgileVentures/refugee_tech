@@ -24,6 +24,7 @@ gem 'fb_graph2'
 gem 'mailboxer',github: 'mailboxer/mailboxer'
 gem 'friendly_id', '~> 5.0.0'
 gem 'amistad'
+gem 'redis'
 
 group :development, :test do
   gem 'coveralls', require: false

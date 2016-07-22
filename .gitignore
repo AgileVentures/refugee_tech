@@ -22,3 +22,5 @@
 coverage/
 
 .byebug_history
+
+.profile
