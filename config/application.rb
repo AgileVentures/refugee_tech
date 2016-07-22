@@ -28,7 +28,7 @@ module ProjectUnify
     # NO GOOD WAY - JUST WIP & TRYING
     # NEEDS TO BE REFACTORED SOON
     # TODO!
-    config.action_controller.permit_all_parameters = true
+    #config.action_controller.permit_all_parameters = true
     # Do not swallow errors in after_commit/after_rollback callbacks.
     #config.active_record.raise_in_transactional_callbacks = true
 
