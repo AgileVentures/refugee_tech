@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 gem 'rails', '5.0'
-#gem 'rails', github: "rails/rails"
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -28,11 +27,11 @@ gem 'amistad'
 
 group :development, :test do
   gem 'coveralls', require: false
-  gem 'simplecov', github: 'AgileVentures/simplecov'
+  gem 'simplecov'
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '3.5.0.beta2'
+  gem 'rspec-rails'#, '3.5.0.beta2'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
