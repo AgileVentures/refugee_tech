@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20160711073514) do
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
-    t.integer "unsubscriber_id"
     t.string  "unsubscriber_type"
+    t.integer "unsubscriber_id"
     t.integer "conversation_id"
     t.index ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
     t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
@@ -54,13 +54,13 @@ ActiveRecord::Schema.define(version: 20160711073514) do
     t.string   "type"
     t.text     "body"
     t.string   "subject",              default: ""
-    t.integer  "sender_id"
     t.string   "sender_type"
+    t.integer  "sender_id"
     t.integer  "conversation_id"
     t.boolean  "draft",                default: false
     t.string   "notification_code"
-    t.integer  "notified_object_id"
     t.string   "notified_object_type"
+    t.integer  "notified_object_id"
     t.string   "attachment"
     t.datetime "updated_at",                           null: false
     t.datetime "created_at",                           null: false
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20160711073514) do
   end
 
   create_table "mailboxer_receipts", force: :cascade do |t|
-    t.integer  "receiver_id"
     t.string   "receiver_type"
+    t.integer  "receiver_id"
     t.integer  "notification_id",                            null: false
     t.boolean  "is_read",                    default: false
     t.boolean  "trashed",                    default: false
@@ -88,10 +88,10 @@ ActiveRecord::Schema.define(version: 20160711073514) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
-    t.integer  "taggable_id"
     t.string   "taggable_type"
-    t.integer  "tagger_id"
+    t.integer  "taggable_id"
     t.string   "tagger_type"
+    t.integer  "tagger_id"
     t.string   "context",       limit: 128
     t.datetime "created_at"
     t.index ["context"], name: "index_taggings_on_context", using: :btree
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20160711073514) do
     t.inet     "last_sign_in_ip"
     t.boolean  "mentor",                 default: false
     t.boolean  "private",                default: false
+    t.string   "slug"
     t.string   "authentication_token"
     t.string   "provider"
     t.string   "uid"
@@ -150,7 +151,6 @@ ActiveRecord::Schema.define(version: 20160711073514) do
     t.string   "gender"
     t.inet     "ip_address"
     t.string   "introduction"
-    t.string   "slug"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

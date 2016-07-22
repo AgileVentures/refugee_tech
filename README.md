@@ -1,5 +1,4 @@
-# Refugee Tech
-
+# Project Unify
 
 This repo is for the Back-end Admin interface and API
 
@@ -23,6 +22,36 @@ Mobile client repo: https://github.com/AgileVentures/project_unify_mobile
 |Pivotal Tracker          |[Project Unify](https://www.pivotaltracker.com/n/projects/1525675)|
 |**API Documentation**       |         |
 | V1 Develop | [unify-develop.herokuapp.com/api-doc](http://unify-develop.herokuapp.com/api-doc)
+
+
+### Features
+#### Main
+* User can sign up as a [Mentor](https://en.wiktionary.org/wiki/mentor#English) or [Mentee](https://en.wiktionary.org/wiki/mentee) 
+* User can add Skills (Areas of interest) 
+* User can search for matches
+  * Mentors can serach for Mentees
+  * Mentees can search for Mentors and other Mentees
+
+#### Secondary
+* User can send messages to other users
+* User can access a Facebook timeline for the organisation running the system
+
+### Setup instructions
+Fork and clone the repository.
+
+Run `bundle install` inside the projects folder
+
+```shell
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
+
+#### Tests
+The admin interface is primarely tested using Cucumber
+Unit test are written in RSpec
+API-endpoints are tested with Request specs `spec/requests/api/v1`
+
 
 ###Background
 More than 700,000 refugees have made their way across the Mediterranean to Europe. The conflict in Syria continues to be by far the biggest driver of migration. But the ongoing violence in Afghanistan, abuses in Eritrea, as well as poverty in Kosovo and other regional conflicts are also leading people to look for new lives elsewhere. Many of the newly arrived refugees are highly skilled individuals, often with extensive professional experience. Others are young people who, because of war and the risk of persecution, was forced to interrupt their university studies.

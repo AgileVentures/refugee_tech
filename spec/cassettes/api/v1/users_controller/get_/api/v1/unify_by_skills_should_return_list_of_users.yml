@@ -24,8 +24,6 @@ http_interactions:
       - Thu, 21 Jul 2016 07:29:07 GMT
       Expires:
       - Fri, 22 Jul 2016 07:29:07 GMT
-      Cache-Control:
-      - public, max-age=86400
       Access-Control-Allow-Origin:
       - "*"
       Server:
@@ -36,6 +34,10 @@ http_interactions:
       - 1; mode=block
       X-Frame-Options:
       - SAMEORIGIN
+      Cache-Control:
+      - public, max-age=86400
+      Age:
+      - '47'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -44,7 +46,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:08 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:54 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -82,7 +84,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '1'
+      - '47'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -91,7 +93,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:08 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:54 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -129,7 +131,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '1'
+      - '48'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -138,7 +140,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:08 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:55 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -176,7 +178,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '1'
+      - '48'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -185,7 +187,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:08 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:55 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -223,7 +225,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '1'
+      - '48'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -232,7 +234,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:08 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:55 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -270,7 +272,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '1'
+      - '48'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -279,7 +281,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:08 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:55 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -317,7 +319,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '2'
+      - '48'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -326,7 +328,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:09 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:55 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -364,7 +366,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '2'
+      - '48'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -373,7 +375,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:09 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:56 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -411,7 +413,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '2'
+      - '49'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -420,7 +422,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:09 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:56 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -458,7 +460,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '2'
+      - '49'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -467,7 +469,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:09 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:56 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -505,7 +507,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '2'
+      - '49'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -514,7 +516,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:09 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:56 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -552,7 +554,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '3'
+      - '49'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -561,7 +563,7 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:10 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:56 GMT
 - request:
     method: get
     uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
@@ -599,7 +601,7 @@ http_interactions:
       Cache-Control:
       - public, max-age=86400
       Age:
-      - '3'
+      - '49'
     body:
       encoding: ASCII-8BIT
       string: |
@@ -608,5 +610,52 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 21 Jul 2016 07:29:10 GMT
+  recorded_at: Thu, 21 Jul 2016 07:29:56 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=44.960562,13.123123&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 21 Jul 2016 07:29:07 GMT
+      Expires:
+      - Fri, 22 Jul 2016 07:29:07 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '65'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - public, max-age=86400
+      Age:
+      - '49'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Thu, 21 Jul 2016 07:29:56 GMT
 recorded_with: VCR 3.0.3
