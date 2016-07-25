@@ -173,6 +173,72 @@ module Api::V1::UsersDoc
   }
   
   )
+
+  def index_friendships
+  end
+
+  api :GET, '/v1/user/:id/friendships/index', 'List of user friends'
+  description "Returns a list of user's friends"
+  formats %w(json)
+  header 'X-User-Email', 'email', required: true
+  header 'X-User-Token', 'authentication token', required: true
+  example %q(
+  Response:
+  {
+   "users":[
+      {
+         "id":1,
+         "user_name":"Thomas Ochman",
+         "city": "Nuuk",
+         "country": "Greenland",
+         "created_at":"2016-02-22T17:46:07.045Z",
+         "profile":"http://localhost:3000/api/v1/users/1"
+      },
+      {
+         "id":2,
+         "user_name":"Anders Andersson",
+         "city": "Paris",
+         "country": "France",
+         "created_at":"2016-02-22T17:46:24.915Z",
+         "profile":"http://localhost:3000/api/v1/users/2"
+      }
+   ]
+  }
+  
+  )
+
+  def pending_friendships
+  end
+
+  api :GET, '/v1/user/:id/pending_friendships/index', 'List of users requesting friendship'
+  description "Returns a list of users with pending friendship request to the given user"
+  formats %w(json)
+  header 'X-User-Email', 'email', required: true
+  header 'X-User-Token', 'authentication token', required: true
+  example %q(
+  Response:
+  {
+   "users":[
+      {
+         "id":1,
+         "user_name":"Thomas Ochman",
+         "city": "Nuuk",
+         "country": "Greenland",
+         "created_at":"2016-02-22T17:46:07.045Z",
+         "profile":"http://localhost:3000/api/v1/users/1"
+      },
+      {
+         "id":2,
+         "user_name":"Anders Andersson",
+         "city": "Paris",
+         "country": "France",
+         "created_at":"2016-02-22T17:46:24.915Z",
+         "profile":"http://localhost:3000/api/v1/users/2"
+      }
+   ]
+  }
+  
+  )
   def friendship
   end
 
