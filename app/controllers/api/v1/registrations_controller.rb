@@ -9,7 +9,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 
 
   def create
-    self.resource = build_resource(sign_up_params.merge params['user'])
+    self.resource = build_resource(sign_up_params.merge params['user'].to_h) 
     resource.ip_address = request.remote_ip if resource.latitude.blank? || resource.longitude.blank?
     resource.save
     yield resource if block_given?
@@ -32,7 +32,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u| 
-      u.permit(:user_name, :email, :password, :provider, :uid, :latitude, :longitude ) 
+      u.permit(:user_name, :email, :password, :password_confirmation, :gender, :provider, :uid, :latitude, :longitude ) 
     end
   end
 
