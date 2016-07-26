@@ -37,13 +37,12 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'faker'
- 
-  
-end
+ end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'listen' 
