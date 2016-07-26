@@ -4,7 +4,7 @@ matches = @unified_users
 json.user do
   json.id user.id
   json.user_name user.user_name
-  json.skills user.skill_list
+  json.skills user.skill_list.sort
   json.created_at user.created_at
 end
 json.matches(matches) do |match|

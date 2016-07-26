@@ -58,7 +58,7 @@ describe Api::V1::UsersController do
                                   city: resource.city,
                                   country: resource.country,
                                   email: resource.email,
-                                  skills: resource.skill_list.reverse,
+                                  skills: resource.skill_list.sort,
                                   created_at: resource.created_at,
                                   friends: resource.friends,
                                   pending_friendships: resource.pending_invited_by}}

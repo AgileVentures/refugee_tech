@@ -9,7 +9,7 @@ json.user do
   json.city user.city
   json.country user.country
   json.email user.email
-  json.skills user.skill_list
+  json.skills user.skill_list.sort
   json.created_at user.created_at
   json.friends user.friends do |friend|
     json.id friend.id

@@ -23,7 +23,7 @@ describe Api::V1::UsersController do
       expect(response.status).to eq 401
     end
 
-    describe 'by skills' do
+    describe 'unify by skills' do
       it 'should return list of users' do
         get "/api/v1/unify/#{user_1.id}", params: nil, headers: headers
         expected_response = [{user: {id: user_5.id,
@@ -42,7 +42,7 @@ describe Api::V1::UsersController do
       end
     end
 
-    describe 'by location and skills' do
+    describe 'unify by location and skills' do
 
       before do
         user_1.update(latitude: '57.708870', longitude: '11.97456') #Gothenburg, Sweden

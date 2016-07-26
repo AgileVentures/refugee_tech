@@ -10,7 +10,7 @@ json.user do
   json.lng user.longitude
   json.city user.city
   json.country user.country
-  json.skills user.skill_list
+  json.skills user.skill_list.sort
   json.token user.authentication_token
   json.credentials @credentials if @credentials
 end
