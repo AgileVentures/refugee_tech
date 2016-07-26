@@ -5,6 +5,7 @@ describe Api::V1::UsersController do
  describe 'GET api/v1/user/:id/friendship/:friend_id' do
     let(:user_1) { FactoryGirl.create(:user) }
     let(:user_2) { FactoryGirl.create(:user) }
+    let(:user_3) { FactoryGirl.create(:user) }
     let(:headers) { {'HTTP_X_USER_EMAIL': user_1.email, 'HTTP_X_USER_TOKEN': user_1.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
 
     it 'should require authentication' do
@@ -13,13 +14,20 @@ describe Api::V1::UsersController do
       expect(response.status).to eq 401
     end
 
-    it 'should make frienships between users' do
+    it 'should make friendships between users' do
       get "/api/v1/user/#{user_1.id}/friendship/#{user_2.id}", params: nil, headers: headers
       expect(response_json["message"]).to eq "successfully invited user #{user_2.user_name}"
       expect(user_2.invited_by? user_1)
       expect(user_2.invited? user_1)
       expect(user_2.pending_invited_by).to eq [user_1]
     end
+    
+    it 'should not allow users to make friendships for other users' do
+      get "/api/v1/user/#{user_2.id}/friendship/#{user_3.id}", params: nil, headers: headers
+      expect(response_json['errors']).to eq({'users' => ['could not perform operation']})
+      expect(response.status).to eq 401
+    end
+    
   end
 
   describe 'GET api/v1/user/:id/friendship/:friend_id/confirm' do
