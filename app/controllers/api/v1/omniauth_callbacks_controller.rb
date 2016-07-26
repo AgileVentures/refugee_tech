@@ -5,7 +5,7 @@ class Api::V1::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   respond_to :json
 
   def facebook
-    resource_class = ActiveRecord::Base::User
+    resource_class = ::User
     self.resource = resource_class.from_omniauth(request.env['omniauth.auth'])
     if resource.persisted?
       sign_in(resource_name, resource)
