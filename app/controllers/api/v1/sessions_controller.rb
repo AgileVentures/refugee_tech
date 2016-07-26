@@ -15,7 +15,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
   def destroy
-    resource_class = ActiveRecord::Base::User
+    resource_class = ::User
     self.resource = resource_class.find_by_authentication_token(request.headers['X-USER-TOKEN'])
     if resource
       resource.reset_authentication_token
