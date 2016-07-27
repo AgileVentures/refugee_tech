@@ -1,12 +1,13 @@
+require 'rails_helper'
 describe Api::V1::UsersController do
   let(:no_headers) { {'HTTP_ACCEPT': 'application/json'} }
 
   describe 'GET /api/v1/unify' do
-    let(:user_1) { FactoryGirl.create(:user, user_name: 'Thomas', mentor: true) }
-    let(:user_2) { FactoryGirl.create(:user, user_name: 'Anders') }
-    let(:user_3) { FactoryGirl.create(:user, user_name: 'Kalle') }
-    let(:user_4) { FactoryGirl.create(:user, user_name: 'Sam', mentor: true) }
-    let(:user_5) { FactoryGirl.create(:user, user_name: 'Otto') }
+    let(:user_1) { create(:user, user_name: 'Thomas', mentor: true) }
+    let(:user_2) { create(:user, user_name: 'Anders') }
+    let(:user_3) { create(:user, user_name: 'Kalle') }
+    let(:user_4) { create(:user, user_name: 'Sam', mentor: true) }
+    let(:user_5) { create(:user, user_name: 'Otto') }
     let(:headers) { {'HTTP_X_USER_EMAIL': user_1.email, 'HTTP_X_USER_TOKEN': user_1.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
 
     before do
