@@ -3,8 +3,8 @@ describe Api::V1::UsersController do
   let(:no_headers) { {'HTTP_ACCEPT': 'application/json'} }
 
   describe 'POST /api/v1/skills/:id' do
-    let(:user_1) { FactoryGirl.create(:user) }
-    let(:user_2) { FactoryGirl.create(:user) }
+    let(:user_1) { create(:user) }
+    let(:user_2) { create(:user) }
     let(:headers) { {'HTTP_X_USER_EMAIL': user_1.email, 'HTTP_X_USER_TOKEN': user_1.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
 
     it 'should require authentication' do

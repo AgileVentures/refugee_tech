@@ -1,8 +1,8 @@
 require 'rails_helper'
 describe Api::V1::UsersController do
-  let(:user_1) { FactoryGirl.create(:user) }
-  let(:user_2) { FactoryGirl.create(:user) }
-  let(:user_3) { FactoryGirl.create(:user) }
+  let(:user_1) { create(:user) }
+  let(:user_2) { create(:user) }
+  let(:user_3) { create(:user) }
   let(:no_headers) { {'HTTP_ACCEPT': 'application/json'} }
   let(:headers) { {'HTTP_X_USER_EMAIL': user_1.email, 'HTTP_X_USER_TOKEN': user_1.authentication_token, 'HTTP_ACCEPT': 'application/json'} }
 
@@ -96,7 +96,7 @@ describe Api::V1::UsersController do
   
   describe 'GET api/v1/user/:id/pending_friendships/index' do
     
-    let(:user_4) { FactoryGirl.create(:user) } 
+    let(:user_4) { create(:user) } 
     
     it 'should require authentication' do
       get "/api/v1/user/#{user_2.id}/pending_friendships/index", params: nil, headers: no_headers
