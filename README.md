@@ -7,7 +7,7 @@ Mobile client repo: https://github.com/AgileVentures/project_unify_mobile
  Service                 |  Status      |
 |------------------------ | ----------------- |
 | **Test coverage**         |                  |
-| Coveralls                |  Not configured   |
+| Coveralls (develop)        |  [![Coverage Status](https://coveralls.io/repos/github/AgileVentures/project_unify/badge.svg?branch=develop)](https://coveralls.io/github/AgileVentures/project_unify?branch=develop)   |
 | **Continuous integration** |    |
 | Semaphore CI (master)       | Not configured|
 | Semaphore CI (staging)       | Not configured|
