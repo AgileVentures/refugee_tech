@@ -53,6 +53,10 @@ Unit test are written in RSpec
 API-endpoints are tested with Request specs `spec/requests/api/v1`
 
 
+### Contributing
+For information on contributing to Project Unify check out the [Developers Guide] (https://github.com/AgileVentures/project_unify/wiki/Developers-Guide) on the [wiki] (https://github.com/AgileVentures/project_unify/wiki)
+
+
 ###Background
 More than 700,000 refugees have made their way across the Mediterranean to Europe. The conflict in Syria continues to be by far the biggest driver of migration. But the ongoing violence in Afghanistan, abuses in Eritrea, as well as poverty in Kosovo and other regional conflicts are also leading people to look for new lives elsewhere. Many of the newly arrived refugees are highly skilled individuals, often with extensive professional experience. Others are young people who, because of war and the risk of persecution, was forced to interrupt their university studies.
 
